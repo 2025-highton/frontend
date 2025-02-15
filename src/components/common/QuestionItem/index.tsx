@@ -56,7 +56,7 @@ export default function ({
         <p className={s.text}>{content}</p>
       </Flex>
       {comment && <div className={s.line}></div>}
-      <p className={s.commentContainer}>
+      <p className={s.ellipsisContainer}>
         <span>A. </span>
         {comment}
       </p>
