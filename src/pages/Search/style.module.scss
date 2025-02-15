@@ -5,6 +5,13 @@
   border: 2px solid #bf3131;
   border-radius: 30px;
   color: #888;
+
+  input {
+    &:focus {
+      outline: none;
+      border-color: #bf3131;
+    }
+  }
 }
 
 .input {
@@ -51,4 +58,18 @@
       padding: 8px 13px;
     }
   }
+}
+
+.noResults {
+  padding: 2rem;
+  text-align: center;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+.error {
+  padding: 2rem;
+  text-align: center;
+  color: #bf3131;
+  font-size: 1.1rem;
 }

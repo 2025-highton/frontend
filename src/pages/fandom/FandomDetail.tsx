@@ -2,13 +2,13 @@ import MediaPreviewHeader from "@/components/fandom/MediaPreviewHeader";
 import TabProvider from "@/components/fandom/TabProvider";
 import { useState } from "react";
 
-export type FandomTab = "소개" | "질의응답" | "히스토리" | "팬질문";
+export type FandomTab = "소개" | "머플" | "히스토리" | "팬질문";
 
 export default function FandomDetail() {
   const [activeTab, setActiveTab] = useState<
-    "소개" | "질의응답" | "히스토리" | "팬질문"
+    "소개" | "머플" | "히스토리" | "팬질문"
   >("소개");
-  const tabs = ["소개", "질의응답", "히스토리", "팬질문"];
+  const tabs = ["소개", "머플", "히스토리", "팬질문"];
   return (
     <>
       <MediaPreviewHeader

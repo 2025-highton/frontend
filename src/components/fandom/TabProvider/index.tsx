@@ -5,7 +5,7 @@ import FandomQuestionWithMembership from "../section/QuestionWithMembership";
 import FandomQuestion from "../section/Question";
 
 interface Props {
-  tabs: "소개" | "질의응답" | "히스토리" | "팬질문";
+  tabs: "소개" | "머플" | "히스토리" | "팬질문";
 }
 
 const QuestionList = lazy(() => import("../QuestionList"));
@@ -15,7 +15,7 @@ const TabProvider = ({ tabs }: Props) => {
   const membership = false;
   const renderContent = () => {
     switch (tabs) {
-      case "질의응답":
+      case "머플":
         return (
           <Suspense fallback={<div>로딩 중...</div>}>
             <QuestionList />

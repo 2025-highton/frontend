@@ -87,7 +87,7 @@ export default function QuestionList() {
 
   return (
     <VStack>
-      <h1 className={s.title}>질의응답</h1>
+      <h1 className={s.title}>머플</h1>
       {isLoading && <SkeletonQuestionList />}
 
       {!isLoading && (
