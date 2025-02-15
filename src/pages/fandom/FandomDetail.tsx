@@ -8,21 +8,24 @@ export type FandomTab = "소개" | "머플" | "히스토리" | "팬질문";
 
 export default function FandomDetail() {
   const { id } = useParams();
+  const [detailData, setDetailData] = useState();
   const [activeTab, setActiveTab] = useState<
     "소개" | "머플" | "히스토리" | "팬질문"
   >("소개");
   const tabs = ["소개", "머플", "히스토리", "팬질문"];
 
-  const getFandomDetailData = () => {
-    const fandomId = localStorage.getItem("userId"); // 로컬 스토리지에서 userId 가져오기
-
-    client({
-      method: "GET",
-      url: `/fandom/${id}`,
-      params: {
-        fandom_id: fandomId,
-      },
-    });
+  const getFandomDetailData = async () => {
+    try {
+      const response = await client({
+        method: "GET",
+        url: `/fandom/${id}`,
+      });
+      if (response.status == 200) {
+        setDetailData(response.data);
+      }
+    } catch (error) {
+      console.Console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -47,7 +50,7 @@ export default function FandomDetail() {
           },
         }}
       />
-      <TabProvider tabs={activeTab} />
+      <TabProvider tabs={activeTab} data={detailData} />
     </>
   );
 }

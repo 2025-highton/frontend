@@ -6,13 +6,14 @@ import FandomQuestion from "../section/Question";
 
 interface Props {
   tabs: "소개" | "머플" | "히스토리" | "팬질문";
+  data: any;
 }
 
 const QuestionList = lazy(() => import("../QuestionList"));
 const History = lazy(() => import("../History"));
 
-const TabProvider = ({ tabs }: Props) => {
-  const membership = false;
+const TabProvider = ({ tabs, data }: Props) => {
+  const membership = localStorage.getItem("membership");
   const renderContent = () => {
     switch (tabs) {
       case "머플":
