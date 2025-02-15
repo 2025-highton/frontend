@@ -13,7 +13,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export default function Button({
     as = 'button',
     variant = ButtonVariant.PRIMARY,
-    size = ButtonSize.MEDIUM,
+    size = ButtonSize.LARGE,
     children,
     className,
     href,

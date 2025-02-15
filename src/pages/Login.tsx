@@ -13,7 +13,7 @@ export default function Login() {
                 <button>버튼</button>
                 <button>버튼</button>
                 <Button>
-                    asd
+                    가입하기
                 </Button>
             </VStack>
             <h1>Login</h1>

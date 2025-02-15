@@ -15,16 +15,16 @@
     // Variants
     &.primary {
       background-color: $color-primary;
-      color: var(--color-white);
+      color: $color-white;
   
-      &:hover {
-        background-color: var(--color-primary-dark);
+      &:active {
+        background-color: $color-primary-dark;
       }
     }
   
     &.secondary {
-      background-color: var(--gray-100);
-      color: var(--text-secondary);
+      background-color: $color-secondary;
+      color: $color-black;
   
       &:hover {
         background-color: var(--gray-200);
