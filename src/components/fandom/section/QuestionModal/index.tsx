@@ -34,7 +34,7 @@ export default function QuestionRequestModal({
           <h1 className={s.title}>질문을 적어주세요!</h1>
           <AiOutlineClose className={s.close} onClick={handleClose} />
         </HStack>
-        <VStack gap={20} style={{ paddingBottom: 20 }}>
+        <VStack gap={15} style={{ paddingBottom: 20 }}>
           <textarea placeholder="질문을 입력해주세요" className={s.input} />
           <Button size={ButtonSize.MEDIUM}>질문하기</Button>
         </VStack>
