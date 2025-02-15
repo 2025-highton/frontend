@@ -21,9 +21,9 @@ export default function Search() {
         <section className={s.recentSearchContainer}>
           <h2>최근 검색어</h2>
           <div>
-            <Link to={"/asd"}>NCT 127</Link>
-            <Link to={"/asd"}>BBTS</Link>
-            <Link to={"/asd"}>BTS</Link>
+            <Link to={"/fandom/nct"}>NCT 127</Link>
+            <Link to={"/fandom/bbts"}>BBTS</Link>
+            <Link to={"/fandom/bts"}>BTS</Link>
             <Link to={"/asd"}>엔ㅅ씨티</Link>
             <Link to={"/asd"}>엔ㅅ씨티</Link>
             <Link to={"/asd"}>엔ㅅ씨티</Link>

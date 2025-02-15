@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import s from "./style.module.scss";
 
-import { MdHome } from "react-icons/md";
+import Bubble from "@/components/icon/bubble";
+import Home from "@/components/icon/home";
+import Profile from "@/components/icon/profile";
 
 export default function NavBar() {
   return (
@@ -10,32 +12,22 @@ export default function NavBar() {
         <ul className={s.list}>
           <li>
             <Link to="/login" className={s.link}>
-              <MdHome size={26} />
-              <span>로그인</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/intro" className={s.link}>
-              Onboard
+              <Home />
             </Link>
           </li>
 
           <li>
-            <button className={s.centerButton}>가운데</button>
-          </li>
-          <li>
-            <Link to="/intro" className={s.link}>
-              Onboard
-            </Link>
+            <button className={s.centerButton}>
+              <Bubble />
+            </button>
           </li>
           <li>
             <Link to="/fandom/1" className={s.link}>
-              FandomDetail
+              <Profile />
             </Link>
           </li>
         </ul>
       </nav>
-      <div className={s.line}></div>
     </>
   );
 }

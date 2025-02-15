@@ -5,25 +5,7 @@
   right: 0;
   z-index: 10;
   height: 60px;
-  background-color: #ffffff;
-  border-top: 1px solid #e0e0e0;
-}
-
-.line {
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 9;
-  width: 75px;
-  height: 40px;
-  background: #fff;
-  border: {
-    top: 1px solid #e0e0e0;
-    left: 1px solid #e0e0e0;
-    right: 1px solid #e0e0e0;
-    radius: 40px 40px 0 0;
-  }
+  background: #F4F4F4;
 }
 
 .list {
@@ -51,10 +33,10 @@
   width: 56px;
   height: 56px;
   margin-top: -28px;
-  background: #ff3b3b;
+  background: #BF3131;
   border: none;
   border-radius: 50%;
-  outline: 8px solid white;
+  outline: 8px solid #F4F4F4;
   cursor: pointer;
   display: flex;
   align-items: center;
