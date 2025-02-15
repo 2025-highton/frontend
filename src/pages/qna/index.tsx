@@ -16,7 +16,7 @@ export default function QnA() {
     setIsAdmin(is_favor === "true");
   }, []);
 
-  const fandomId = localStorage.getItem("fandomId") || 0;
+  const fandomId = localStorage.getItem("fandom_id") || 0;
 
   return (
     <>

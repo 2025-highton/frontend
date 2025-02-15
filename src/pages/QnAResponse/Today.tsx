@@ -17,14 +17,14 @@ export default function QnAResponseToday() {
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    const fandomId = localStorage.getItem("fandomId") || 0;
+    const fandomId = localStorage.getItem("fandom_id") || 0;
     client.get(`/fandom/${fandomId}`).then((res) => {
       setName(res.data.name);
     });
   }, []);
 
   function handleComplete() {
-    const fandomId = localStorage.getItem("fandomId") || 0;
+    const fandomId = localStorage.getItem("fandom_id") || 0;
     const id = localStorage.getItem("id") || 0;
     // TODO: 완료 버튼 클릭 시 동작
     client.post('/question/plus-answer', {
