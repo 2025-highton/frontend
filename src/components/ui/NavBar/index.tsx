@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import s from "./style.module.scss";
 
 import Bubble from "@/components/icon/bubble";
@@ -6,13 +6,15 @@ import Home from "@/components/icon/home";
 import Profile from "@/components/icon/profile";
 
 export default function NavBar() {
+  const { pathname } = useLocation();
+
   return (
     <>
       <nav className={s.nav}>
         <ul className={s.list}>
           <li>
             <Link to="/login" className={s.link}>
-              <Home />
+              <Home color={pathname === "/" ? "#BF3131" : undefined} />
             </Link>
           </li>
 
@@ -23,7 +25,9 @@ export default function NavBar() {
           </li>
           <li>
             <Link to="/fandom/1" className={s.link}>
-              <Profile />
+              <Profile
+                color={pathname === "/profile" ? "#BF3131" : undefined}
+              />
             </Link>
           </li>
         </ul>
