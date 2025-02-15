@@ -23,11 +23,20 @@
     }
   
     &.secondary {
-      background-color: #000;
+      background-color: #7D0A0A;
       color: #fff;
   
-      &:hover {
-        background-color: #000;
+      &:active {
+        background-color: #540808;
+      }
+    }
+
+    &.white {
+      background-color: #fff;
+      color: #BF3131;
+  
+      &:active {
+        background-color: #F3EDC8;
       }
     }
   

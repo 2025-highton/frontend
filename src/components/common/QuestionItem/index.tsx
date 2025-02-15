@@ -1,6 +1,6 @@
-import { Flex, VStack } from "@/components/ui";
-import { client } from "@/api/axios";
-import { useEffect, useState } from "react";
+import { Flex } from "@/components/ui";
+// import { client } from "@/api/axios";
+import { useEffect } from "react";
 import s from "./style.module.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,7 @@ interface Props {
   comment?: string;
 }
 
-export default function ({
+export default function Question({
   idx,
   question,
   content,
