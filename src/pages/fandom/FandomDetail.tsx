@@ -1,7 +1,8 @@
 import MediaPreviewHeader from "@/components/fandom/MediaPreviewHeader";
 import TabProvider from "@/components/fandom/TabProvider";
-import NavBar from "@/components/ui/NavBar";
 import { useState } from "react";
+
+export type FandomTab = "소개" | "질의응답" | "히스토리" | "팬질문";
 
 export default function FandomDetail() {
   const [activeTab, setActiveTab] = useState<
@@ -21,13 +22,12 @@ export default function FandomDetail() {
         tab={{
           tabs,
           activeTab,
-          onClick: (tab: string) => {
+          onClick: (tab: FandomTab) => {
             setActiveTab(tab);
           },
         }}
       />
       <TabProvider tabs={activeTab} />
-      <NavBar />
     </>
   );
 }
