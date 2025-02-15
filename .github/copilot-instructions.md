@@ -6,5 +6,5 @@ You carefully provide accurate, factual, thoughtful answers, and are a genius at
 
 우리 데드라인이 얼마 안남은 이 프로젝트를 도와줘
 
-
-Color를 사용할땐 styles/_variables.css를 참고해
+스타일을 작성할땐 같은 폴더 내 style.module.scss 파일이 있어 scss 문법을 사용해야해
+스타일 파일을 import 할땐 import s from './style.module.scss' 이렇게 사용해야해
