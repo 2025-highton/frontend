@@ -4,6 +4,7 @@ import QuestionItem from "@/components/common/QuestionItem";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import HistorySkeletonList from "./index.skeleton";
+import { client } from "@/api/axios";
 
 interface HistoryItemType {
   id: number;
@@ -13,25 +14,11 @@ interface HistoryItemType {
   comment: string;
   createdAt: string;
 }
-
-const MOCK_DATA: HistoryItemType[] = [
-  {
-    id: 1,
-    question: "가장 인상 깊었던 순간은?",
-    content: "첫 팬미팅에서 팬들을 만났을 때입니다!",
-    profileId:
-      "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg",
-    comment: "정말 감동적인 순간이었어요",
-    createdAt: "2024-03-15",
-  },
-  // ...추가 목업 데이터...
-];
-
 export default function History() {
   const [historyList, setHistoryList] = useState<HistoryItemType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const user_id = localStorage.getItem("id");
   const container = {
     hidden: { opacity: 1 },
     visible: {
@@ -57,8 +44,19 @@ export default function History() {
   const getHistoryList = async () => {
     try {
       setIsLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setHistoryList(MOCK_DATA);
+      const response = await client({
+        method: "GET",
+        url: "/question",
+        params: {
+          type: "publisher",
+          id: user_id,
+          offset: 0,
+          limit: 100,
+        },
+      });
+      if (response.status == 200) {
+        setHistoryList(response.data);
+      }
     } catch (error) {
       console.error("Failed to fetch history:", error);
     } finally {
@@ -76,7 +74,6 @@ export default function History() {
     <VStack>
       <h1 className={s.title}>히스토리</h1>
       {isLoading && <HistorySkeletonList />}
-
       {!isLoading && (
         <AnimatePresence>
           <motion.div
