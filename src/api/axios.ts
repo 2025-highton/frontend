@@ -6,9 +6,16 @@ const baseURL = import.meta.env.VITE_API_URL as string;
 const token = Cookies.get("accessToken");
 
 export const client = axios.create({
-    baseURL,
-    headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-    },
+  baseURL,
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${token}`,
+  },
+});
+export const clientFile = axios.create({
+  baseURL,
+  headers: {
+    "Content-Type": "mulitpart/form-data",
+    Authorization: `Bearer ${token}`,
+  },
 });

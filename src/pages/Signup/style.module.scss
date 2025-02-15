@@ -8,3 +8,16 @@
     border: 1.8px solid var(--main-02, #c31717);
   }
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  gap: 20px;
+
+  p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}

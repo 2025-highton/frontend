@@ -1,4 +1,4 @@
-import { client } from "@/api/axios";
+import { client, clientFile } from "@/api/axios";
 import { Button, VStack } from "@/components/ui";
 import Layout from "@/components/ui/Layout";
 import { useState } from "react";
@@ -16,6 +16,8 @@ export default function Login() {
   const [fandomData, setFandomData] = useState({
     bannerImg: null,
     desc: "",
+    name: "",
+    profile_img: null,
   });
 
   const [loading, setLoading] = useState(false);
@@ -27,22 +29,28 @@ export default function Login() {
     setMessage("");
 
     try {
-      // 회원가입 요청
       const userResponse = await client.post("/user", {
         email: login.email,
         password: login.password,
         is_favor: login.is_favor,
       });
 
-      // 회원가입 성공 시 팬덤 생성 로직 실행
-      if (login.is_favor && userResponse.status === 200) {
+      if (login.is_favor && userResponse.status === 201) {
         const formData = new FormData();
         if (fandomData.bannerImg) {
-          formData.append("banner_img", fandomData.bannerImg);
+          formData.append("benner_img", fandomData.bannerImg);
+        }
+        if (fandomData.profile_img) {
+          formData.append("profile_img", fandomData.profile_img);
         }
         formData.append("desc", fandomData.desc);
-
-        await client.post("/fandom", formData);
+        formData.append("name", fandomData.name);
+        formData.append("owner_id", userResponse.data.id);
+        await clientFile({
+          method: "POST",
+          url: "/fandom",
+          data: formData,
+        });
         setMessage("회원가입 및 팬덤 생성이 성공적으로 완료되었습니다!");
       } else {
         setMessage("회원가입이 성공적으로 완료되었습니다!");
@@ -92,6 +100,19 @@ export default function Login() {
           {login.is_favor && (
             <>
               <VStack gap={10}>
+                <label>팬덤이름</label>
+                <input
+                  type="text"
+                  name="name"
+                  className={s.inputContainer}
+                  required
+                  value={fandomData.name}
+                  onChange={(e) =>
+                    setFandomData({ ...fandomData, name: e.target.value })
+                  }
+                />
+              </VStack>
+              <VStack gap={10}>
                 <label>배너 이미지</label>
                 <input
                   name="banner_img"
@@ -101,6 +122,20 @@ export default function Login() {
                     setFandomData({
                       ...fandomData,
                       bannerImg: e.target.files?.[0] || null,
+                    })
+                  }
+                />
+              </VStack>
+              <VStack gap={10}>
+                <label>프로필 이미지</label>
+                <input
+                  name="banner_img"
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) =>
+                    setFandomData({
+                      ...fandomData,
+                      profile_img: e.target.files?.[0] || null,
                     })
                   }
                 />
