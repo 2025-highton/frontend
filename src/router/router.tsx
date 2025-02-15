@@ -12,6 +12,8 @@ const Onboard = lazy(() => import("../pages/Auth/Onboard"));
 const FandomDetail = lazy(() => import("../pages/fandom/FandomDetail"));
 const Write = lazy(() => import("../pages/Write"));
 const FanQnA = lazy(() => import("../pages/fanQnA"));
+const QnAResponseFan = lazy(() => import("../pages/QnAResponse/fan"));
+const QnAResponseToday = lazy(() => import("../pages/QnAResponse/Today"));
 
 export default function Router() {
   return (
@@ -20,10 +22,16 @@ export default function Router() {
         {/* 로그인 안해도 되는 라우팅 */}
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
+
         <Route path="/search" element={<Search />} />
+
         <Route path="/question" element={<QnA />} />
         <Route path="/question/fan" element={<FanQnA />} />
+        <Route path="/question/fan/response" element={<QnAResponseFan />} />
+        <Route path="/question/today/response" element={<QnAResponseToday />} />
+
         <Route path="/intro" element={<Onboard />} />
+
         <Route path="/fandom/:id" element={<FandomDetail />} />
         <Route path="/write" element={<Write />} />
         <Route path="/question/:id" element={<Question />} />
