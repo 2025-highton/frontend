@@ -10,7 +10,6 @@ const Question = lazy(() => import("../pages/Question"));
 const QnA = lazy(() => import("../pages/qna"));
 const Onboard = lazy(() => import("../pages/Auth/Onboard"));
 const FandomDetail = lazy(() => import("../pages/fandom/FandomDetail"));
-const Write = lazy(() => import("../pages/Write"));
 const FanQnA = lazy(() => import("../pages/fanQnA"));
 const QnAResponseFan = lazy(() => import("../pages/QnAResponse/Fan"));
 const QnAResponseToday = lazy(() => import("../pages/QnAResponse/Today"));
@@ -26,24 +25,19 @@ export default function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Main />} />
-
+        <Route path="/intro" element={<Onboard />} />
         <Route path="/search" element={<Search />} />
-
+        <Route path="/question/today/response" element={<QnAResponseToday />} />
         <Route path="/question" element={<QnA />} />
         <Route path="/question/fan" element={<FanQnA />} />
-        <Route path="/question/fan/response" element={<QnAResponseFan />} />
-        <Route path="/question/today/response" element={<QnAResponseToday />} />
-
-        <Route path="/intro" element={<Onboard />} />
-
         <Route path="/membership" element={<Membership />} />
         <Route path="/membership/confirm" element={<MembershipConfirm />} />
 
         <Route path="/fandom/:id" element={<FandomDetail />} />
-        <Route path="/write" element={<Write />} />
         <Route path="/question/:id" element={<Question />} />
+        <Route path="/question/fan/response/:id" element={<QnAResponseFan />} />
+
         <Route element={<PrivateRoute />}>
-          <Route path="/login2" element={<Login />} />
           {/* 로그인 해야되는 라우팅 */}
         </Route>
       </Routes>
