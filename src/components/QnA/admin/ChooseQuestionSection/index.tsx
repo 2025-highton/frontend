@@ -9,7 +9,7 @@ export default function ChooseQuestionSection() {
   return (
     <VStack align="center" gap={15} className={s.container}>
       <Button
-        onClick={() => navigate("")}
+        onClick={() => navigate("/question/today/response")}
         variant={ButtonVariant.WHITE}
         size={ButtonSize.MEDIUM}
         style={{ width: "100%" }}
