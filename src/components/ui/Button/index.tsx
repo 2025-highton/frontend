@@ -1,6 +1,6 @@
 import { ButtonSize, ButtonVariant } from './index.type';
 import s from './style.module.scss';
-import classNames from '@/';
+import classNames from 'classnames';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     as?: 'button' | 'a';
