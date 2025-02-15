@@ -19,7 +19,6 @@ export default function Button({
     href,
     ...props
 }: ButtonProps) {
-    console.log(variant)
     const buttonClassName = classNames(
         s.button,
         s[variant],
