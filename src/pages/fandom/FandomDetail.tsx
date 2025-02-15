@@ -1,9 +1,12 @@
 import MediaPreviewHeader from "@/components/fandom/MediaPreviewHeader";
+import TabProvider from "@/components/fandom/TabProvider";
 import NavBar from "@/components/ui/NavBar";
 import { useState } from "react";
 
 export default function FandomDetail() {
-  const [activeTab, setActiveTab] = useState("Tab 1");
+  const [activeTab, setActiveTab] = useState<
+    "소개" | "질의응답" | "히스토리" | "팬질문"
+  >("소개");
   const tabs = ["소개", "질의응답", "히스토리", "팬질문"];
   return (
     <>
@@ -23,6 +26,7 @@ export default function FandomDetail() {
           },
         }}
       />
+      <TabProvider tabs={activeTab} />
       <NavBar />
     </>
   );

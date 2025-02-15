@@ -1,15 +1,17 @@
 import { Flex } from "@/components/ui";
-import "./index.module.scss";
+import "./style.module.scss";
 import { client } from "@/api/axios";
 import { useEffect, useState } from "react";
+
 interface Props {
-  question: string;
+  profileUrl: string;
+  name: string;
   content: string;
-  profileId: string;
 }
 
-export default function ({ question, content, profileId }: Props) {
-  const [imageFile, setImageFile] = useState<File | null>();
+const CommentItem = ({ profileUrl, name, content }: Props) => {
+  const [profileImg, setProfileImg] = useState<File | null>();
+
   const getImageFile = (profileId: string) => {
     try {
       const response = client({
@@ -18,25 +20,23 @@ export default function ({ question, content, profileId }: Props) {
           profileId,
         },
       });
-      setImageFile(response.imageFile);
+      setProfileImg(response?.imageFile);
     } catch (error) {
       console.error(error);
     }
   };
 
   useEffect(() => {
-    getImageFile(profileId);
+    getImageFile(profileUrl);
   }, []);
 
   return (
     <Flex>
-      <p>{question}</p>
-      <Flex>
-        <div>
-          {imageFile ? <img src={imageFile} /> : <div>대충 mock image</div>}
-        </div>
-        <p>{content}</p>
-      </Flex>
+      {profileImg ? <img src={profileImg} /> : <img src={""} />}
+      <p>{name}</p>
+      <p>{content}</p>
     </Flex>
   );
-}
+};
+
+export default CommentItem;
