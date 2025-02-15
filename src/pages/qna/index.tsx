@@ -11,9 +11,9 @@ export default function QnA() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    //TODO: 로직 작성
-    setIsAdmin(true);
-  });
+    const is_favor = localStorage.getItem("is_favor");
+    setIsAdmin(is_favor);
+  }, []);
 
   return (
     <>
@@ -39,7 +39,7 @@ export default function QnA() {
         <>
           <ChooseQuestionSection />
           <Layout>
-            <VStack gap={20} style={{ padding: '30px 0'}}>
+            <VStack gap={20} style={{ padding: "30px 0" }}>
               {Array.from({ length: 10 }).map((_, idx) => (
                 <QuestionItem
                   key={idx}

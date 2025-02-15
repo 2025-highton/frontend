@@ -17,7 +17,7 @@ export default function FandomDetail() {
     const fandomId = localStorage.getItem("userId"); // 로컬 스토리지에서 userId 가져오기
 
     client({
-      method: "POST",
+      method: "GET",
       url: `/fandom/${id}`,
       params: {
         fandom_id: fandomId,
