@@ -8,11 +8,11 @@ export default function FandomDetail() {
   const tabs = ["Tab 1", "Tab 2", "Tab 3"];
   return (
     <>
-      <MediaPreviewHeader imageSrc="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" />
+      <MediaPreviewHeader imageSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgzlaqFaLoi5T625SHM81VVE7LV4T2nGN8UA&s" />
       <FandomProfile
-        profileImageSrc="https://nct-jp.net/assets/images/sp/slide_20241101.jpg"
-        fandomName="NCT 아이고"
-        fandomDescription="아이고"
+        profileImageSrc="https://phinf.wevpstatic.net/MjAyNDA5MjRfMTU0/MDAxNzI3MTY4MzQwODAz.inbxWmasfUxMZ6aK-CtXze5AY7GpGqCmjhBrrFjKMIIg.tRb51nQXrv-IPd9D1sraaYHnadDBh_93mVHX2T90H7Eg.JPEG/0b97f398-b833-4283-a1ba-7acaa3249370.jpeg?type=w670"
+        fandomName="NCT 127"
+        fandomDescription="123,123명 가입"
       />
       <Tab tabs={tabs} activeTab={activeTab} onClick={setActiveTab} />
     </>
