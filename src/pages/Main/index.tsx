@@ -4,7 +4,6 @@ import SlideBanner, {
   InnerCircleBanner,
 } from "@/components/fandom/SlideBanner";
 import Header from "@/components/ui/Header";
-import Layout from "@/components/ui/Layout";
 import NavBar from "@/components/ui/NavBar";
 import s from "./style.module.scss";
 import { VStack } from "@/components/ui";
@@ -13,19 +12,23 @@ export default function Main() {
   const mockImageData = [
     {
       iamgeUrl: "https://i.ytimg.com/vi/QonXUELzeRw/maxresdefault.jpg",
-      redirectUrl: "/fandum/12",
+      redirectUrl: "/fandom/12",
+      title: 'QWER'
     },
     {
       iamgeUrl: "https://i.ytimg.com/vi/QonXUELzeRw/maxresdefault.jpg",
-      redirectUrl: "/fandum/12",
+      redirectUrl: "/fandom/12",
+      title: 'QWER'
     },
     {
       iamgeUrl: "https://i.ytimg.com/vi/QonXUELzeRw/maxresdefault.jpg",
-      redirectUrl: "/fandum/12",
+      redirectUrl: "/fandom/12",
+      title: 'QWER'
     },
     {
       iamgeUrl: "https://i.ytimg.com/vi/QonXUELzeRw/maxresdefault.jpg",
-      redirectUrl: "/fandum/12",
+      redirectUrl: "/fandom/12",
+      title: 'QWER'
     },
   ];
 
@@ -40,7 +43,7 @@ export default function Main() {
         <VStack style={{ width: "100%" }}>
           <h2 className={s.title}>새로운 머플러</h2>
 
-          <CircleBanner images={mockImageData}></CircleBanner>
+          <CircleBanner style={{padding: '20px 0 20px 30px'}} images={mockImageData}></CircleBanner>
         </VStack>
         <VStack style={{ width: "100%" }}>
           <h2 className={s.title}>최고 인기 머플러</h2>

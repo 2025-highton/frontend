@@ -1,4 +1,4 @@
-export default function () {
+export default function BackCursor() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -10,9 +10,9 @@ export default function () {
       <path
         d="M8 1L1 8.5L8 16"
         stroke="black"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

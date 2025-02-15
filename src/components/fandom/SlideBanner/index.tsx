@@ -4,14 +4,17 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import s from "./style.module.scss";
 import Plus from "@/components/icon/plus";
+import { CSSProperties } from "react";
 
 interface ImageItem {
   iamgeUrl: string;
   redirectUrl: string;
+  title?: string;
 }
 
 interface Props {
   images: ImageItem[];
+  style?: CSSProperties;
 }
 
 export default function CenteredAutoSwiper({ images }: Props) {
@@ -41,7 +44,7 @@ export default function CenteredAutoSwiper({ images }: Props) {
   );
 }
 
-export function CircleBanner({ images }: Props) {
+export function CircleBanner({ images, style }: Props) {
   return (
     <Swiper
       className={s.container}
@@ -49,6 +52,7 @@ export function CircleBanner({ images }: Props) {
       centeredSlides={false} // 중앙 정렬
       spaceBetween={30} // 슬라이드 간격 조정
       pagination={{ clickable: true }}
+      style={style}
     >
       {images.map((image, index) => (
         <SwiperSlide key={index} className={s.slide}>
@@ -59,6 +63,7 @@ export function CircleBanner({ images }: Props) {
             rel="noopener noreferrer"
           >
             <img src={image.iamgeUrl} alt={`slide-${index}`} />
+            <span>{image.title}</span>
           </a>
         </SwiperSlide>
       ))}

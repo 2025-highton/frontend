@@ -12,8 +12,9 @@ const Onboard = lazy(() => import("../pages/Auth/Onboard"));
 const FandomDetail = lazy(() => import("../pages/fandom/FandomDetail"));
 const Write = lazy(() => import("../pages/Write"));
 const FanQnA = lazy(() => import("../pages/fanQnA"));
-const QnAResponseFan = lazy(() => import("../pages/QnAResponse/fan"));
+const QnAResponseFan = lazy(() => import("../pages/QnAResponse/Fan"));
 const QnAResponseToday = lazy(() => import("../pages/QnAResponse/Today"));
+const Membership = lazy(() => import("../pages/Membership"));
 
 export default function Router() {
   return (
@@ -31,6 +32,8 @@ export default function Router() {
         <Route path="/question/today/response" element={<QnAResponseToday />} />
 
         <Route path="/intro" element={<Onboard />} />
+
+        <Route path="/membership" element={<Membership />} />
 
         <Route path="/fandom/:id" element={<FandomDetail />} />
         <Route path="/write" element={<Write />} />
