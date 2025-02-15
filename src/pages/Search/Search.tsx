@@ -42,26 +42,25 @@ export default function Search() {
         />
         <IoSearch size={20} color="bf3131" onClick={submitSearch} />
       </HStack>{" "}
-      <section className={s.recentSearchContainer}>
-        <h2>최근 검색어</h2>
-        <div>
-          {recentSearch.length > 0 ? (
-            recentSearch.map((search, index) => (
-              <div key={index} className={s.searchItem}>
-                <Link to={`/search/${search}`}>{search}</Link>
-              </div>
-            ))
-          ) : (
-            <p>최근 검색어가 없습니다.</p>
-          )}
-        </div>
-      </section>
-      <Flex direction="column">
-        <h2>{}</h2>
-        <Flex direction="column">"검색리스트"</Flex>
-      </Flex>
       <Layout>
-        <></>
+        <section className={s.recentSearchContainer}>
+          <h2>최근 검색어</h2>
+          <div>
+            {recentSearch.length > 0 ? (
+              recentSearch.map((search, index) => (
+                <div key={index} className={s.searchItem}>
+                  <Link to={`/search/${search}`}>{search}</Link>
+                </div>
+              ))
+            ) : (
+              <p>최근 검색어가 없습니다.</p>
+            )}
+          </div>
+        </section>
+        <Flex direction="column">
+          <h2>{}</h2>
+          <Flex direction="column">"검색리스트"</Flex>
+        </Flex>
       </Layout>
     </>
   );
