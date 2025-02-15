@@ -1,8 +1,9 @@
 import { Flex } from "@/components/ui";
-import "./style.module.scss";
+import s from "./style.module.scss";
 import { client } from "@/api/axios";
 import { useEffect, useState } from "react";
-
+import fillHeart from "@/components/icon/fillHeart";
+import lineHeart from "@/components/icon/lineHeart";
 interface Props {
   profileUrl: string;
   name: string;
@@ -11,7 +12,7 @@ interface Props {
 
 const CommentItem = ({ profileUrl, name, content }: Props) => {
   const [profileImg, setProfileImg] = useState<File | null>();
-
+  const [emoji, setEmoji] = useState(false);
   const getImageFile = (profileId: string) => {
     try {
       const response = client({
@@ -31,10 +32,19 @@ const CommentItem = ({ profileUrl, name, content }: Props) => {
   }, []);
 
   return (
-    <Flex>
+    <Flex
+      direction="row"
+      className={s.container}
+      justify="around"
+      gap={10}
+      align="center"
+    >
       {profileImg ? <img src={profileImg} /> : <img src={""} />}
       <p>{name}</p>
       <p>{content}</p>
+      <label onClick={() => setEmoji(!emoji)}>
+        {emoji ? fillHeart() : lineHeart()}
+      </label>
     </Flex>
   );
 };
