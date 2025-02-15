@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from 'react-router'
+import checkAuthenticate from '../api/checkAuthenticate';
 
 const PrivateRoute = () => {
-    // TODO: 로그인 여부 확인
-    const isAuthenticated = false;
+    const isAuthenticated = checkAuthenticate();
 
     if (!isAuthenticated) {
         //TODO: 로직 구현
