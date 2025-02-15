@@ -13,7 +13,7 @@ export default function Onboard() {
                 <Button>
                     로그인
                 </Button>
-                <Button variant={ButtonVariant.SECONDARY}>
+                <Button variant={ButtonVariant.OUTLINE}>
                     회원가입
                 </Button>
             </VStack>

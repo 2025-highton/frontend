@@ -1,0 +1,18 @@
+.container {
+    color: #BF3131;
+
+    height: 100px;
+
+    span {
+        font-size: 22px;
+        font-weight: 600;
+
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    div:active {
+        opacity: 0.5;
+    }
+}

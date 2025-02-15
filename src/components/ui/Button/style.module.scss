@@ -39,6 +39,17 @@
         background-color: #F3EDC8;
       }
     }
+
+    &.outline {
+      background-color: white;
+      color: #BF3131;
+      border: 3px solid #BF3131;
+  
+      &:active {
+        background-color: #BF3131;
+        color: #fff;
+      }
+    }
   
     // Sizes
     &.small {

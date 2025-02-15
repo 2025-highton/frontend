@@ -1,11 +1,13 @@
 import QuestionByFan from "@/components/QnA/QuestionByFan";
 import { VStack } from "@/components/ui";
+import BackButtonHeader from "@/components/ui/BackButtonHeader";
 import Layout from "@/components/ui/Layout";
 import NavBar from "@/components/ui/NavBar";
 
 export default function FanQnA() {
   return (
     <Layout>
+      <BackButtonHeader>팬 질문</BackButtonHeader>
       <VStack gap={15}>
         {Array.from({ length: 10 }).map((_, idx) => (
           <QuestionByFan
