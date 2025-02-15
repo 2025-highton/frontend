@@ -13,7 +13,7 @@ export default function FandomDetail() {
       <FandomProfile
         profileImageSrc="https://phinf.wevpstatic.net/MjAyNDA5MjRfMTU0/MDAxNzI3MTY4MzQwODAz.inbxWmasfUxMZ6aK-CtXze5AY7GpGqCmjhBrrFjKMIIg.tRb51nQXrv-IPd9D1sraaYHnadDBh_93mVHX2T90H7Eg.JPEG/0b97f398-b833-4283-a1ba-7acaa3249370.jpeg?type=w670"
         fandomName="NCT 127"
-        fandomDescription="123,123명 가입"
+        fandomDescription="2024-08-24 가입"
       />
       <Tab tabs={tabs} activeTab={activeTab} onClick={setActiveTab} />
       <NavBar />
