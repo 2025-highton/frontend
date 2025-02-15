@@ -24,7 +24,7 @@ export default function Router() {
         <Route path="/intro" element={<Onboard />} />
         <Route path="/fandom/:id" element={<FandomDetail />} />
         <Route path="/write" element={<Write />} />
-        <Route path="/Question/:id" element={<Question />} />
+        <Route path="/question/:id" element={<Question />} />
         <Route element={<PrivateRoute />}>
           <Route path="/login2" element={<Login />} />
           {/* 로그인 해야되는 라우팅 */}

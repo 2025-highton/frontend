@@ -1,7 +1,8 @@
-import { Flex } from "@/components/ui";
+import { Flex, VStack } from "@/components/ui";
 import { client } from "@/api/axios";
 import { useEffect, useState } from "react";
 import s from "./style.module.scss";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   idx: number;
@@ -18,6 +19,8 @@ export default function ({
   profileId,
   comment,
 }: Props) {
+  const navigate = useNavigate();
+
   // const [imageFile, setImageFile] = useState<File | null>();
   // const getImageFile = (profileId: string) => {
   //   try {
@@ -38,7 +41,7 @@ export default function ({
   }, []);
 
   return (
-    <Flex direction="column" className={s.container} gap={16}>
+    <div className={s.container} onClick={() => navigate(`/question/${11}`)}>
       <p className={s.ellipsisContainer}>
         <span>{`Q.${idx}`}</span>
         {question}
@@ -64,6 +67,6 @@ export default function ({
           </p>
         </>
       )}
-    </Flex>
+    </div>
   );
 }
