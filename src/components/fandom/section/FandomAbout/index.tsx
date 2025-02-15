@@ -1,5 +1,6 @@
 import { HStack, VStack } from "@/components/ui";
 import s from "./style.module.scss";
+import FandomSectionTitle from "../Title";
 
 interface Props {
   fandomName: string;
@@ -11,7 +12,7 @@ interface Props {
 export default function FandomAboutSection(data: Props) {
   return (
     <VStack>
-      <h1 className={s.title}>머플러 소개</h1>
+      <FandomSectionTitle>머플러 소개</FandomSectionTitle>
       <h2 className={s.fandomName}>{data.fandomName}</h2>
       <p className={s.fandomAbout}>{data.description}</p>
       <VStack as={"section"} gap={30} className={s.detailSection}>
