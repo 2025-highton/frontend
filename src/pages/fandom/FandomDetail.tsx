@@ -1,5 +1,6 @@
 import FandomProfile from "@/components/fandom/FandomProfile";
 import MediaPreviewHeader from "@/components/fandom/MediaPreviewHeader";
+import Layout from "@/components/ui/Layout";
 import NavBar from "@/components/ui/NavBar";
 import Tab from "@/components/ui/Tab";
 import { useState } from "react";
@@ -15,7 +16,10 @@ export default function FandomDetail() {
         fandomName="NCT 127"
         fandomDescription="2024-08-24 가입"
       />
-      <Tab tabs={tabs} activeTab={activeTab} onClick={setActiveTab} />
+
+      <Layout>
+        <Tab tabs={tabs} activeTab={activeTab} onClick={setActiveTab} />
+      </Layout>
       <NavBar />
     </>
   );
