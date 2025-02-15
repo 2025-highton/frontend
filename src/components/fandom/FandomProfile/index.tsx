@@ -17,7 +17,7 @@ export default function FandomProfile({
     <Flex className={s.fandomProfile} justify='between'>
       <HStack gap={16}>
         <img src={profileImageSrc} className={s.image} />
-        <VStack className={s.data} gap={10}>
+        <VStack className={s.data} gap={6}>
           <h1>{fandomName}</h1>
           <span>{fandomDescription}</span>
         </VStack>
