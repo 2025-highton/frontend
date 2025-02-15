@@ -1,4 +1,4 @@
-import { Button, HStack, VStack } from "../components/ui"
+import { Button, HStack, VStack } from "@/components/ui"
 
 export default function Login() {
     return (
