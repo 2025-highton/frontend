@@ -1,53 +1,54 @@
 .inputContainer {
-    height: 60px;
-    padding: 0 20px;
-    
-    border-bottom: 1px solid #e0e0e0;
+  height: 60px;
+  padding: 0 20px;
 
-    color: #888;
+  border: 2px solid #bf3131;
+  border-radius: 30px;
+  color: #888;
 }
 
 .input {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 
-    border: 0;
+  border: 0;
 
-    background-color: transparent;
+  background-color: transparent;
 
-    font-size: 18px;
+  font-size: 18px;
 
-    &:active, &:focus {
-        outline: none;
-    }
+  &:active,
+  &:focus {
+    outline: none;
+  }
 }
 
 .recentSearchContainer {
-    padding: 25px 0;
-    h2 {
-        font-size: 16px;
-        font-weight: 500;
+  padding: 25px 0;
+  h2 {
+    font-size: 16px;
+    font-weight: 500;
 
-        margin: 0;
-        margin-bottom: 20px;
+    margin: 0;
+    margin-bottom: 20px;
 
-        color: #727272
+    color: #727272;
+  }
+
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    a {
+      text-decoration: none;
+
+      color: #000;
+
+      border-radius: 999px;
+      border: 1px solid #e0e0e0;
+
+      padding: 8px 13px;
     }
-
-    div {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-
-        a {
-            text-decoration: none;
-    
-            color: #000;
-    
-            border-radius: 999px;
-            border: 1px solid #e0e0e0;
-    
-            padding: 8px 13px;
-        }
-    }
+  }
 }
