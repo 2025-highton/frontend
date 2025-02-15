@@ -14,20 +14,20 @@
   
     // Variants
     &.primary {
-      background-color: $color-primary;
-      color: $color-white;
+      background-color: #000;
+      color: #fff;
   
       &:active {
-        background-color: $color-primary-dark;
+        background-color: #000;
       }
     }
   
     &.secondary {
-      background-color: $color-secondary;
-      color: $color-black;
+      background-color: #000;
+      color: #fff;
   
       &:hover {
-        background-color: var(--gray-200);
+        background-color: #000;
       }
     }
   

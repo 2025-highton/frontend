@@ -1,0 +1,19 @@
+.fandomProfile {
+    padding: 20px;
+}
+
+.image {
+    width: 60px;
+    aspect-ratio: 1/1;
+
+    object-fit: cover;
+
+    border-radius: 999px;
+}
+
+.data {
+    h1 {
+        font-size: 20px;
+        margin: 0;
+    }
+}
