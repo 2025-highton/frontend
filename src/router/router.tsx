@@ -11,6 +11,7 @@ const QnA = lazy(() => import("../pages/qna"));
 const Onboard = lazy(() => import("../pages/Auth/Onboard"));
 const FandomDetail = lazy(() => import("../pages/fandom/FandomDetail"));
 const Write = lazy(() => import("../pages/Write"));
+const FanQnA = lazy(() => import("../pages/fanQnA"));
 
 export default function Router() {
   return (
@@ -20,7 +21,8 @@ export default function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
         <Route path="/search" element={<Search />} />
-        <Route path="/Question" element={<QnA />} />
+        <Route path="/question" element={<QnA />} />
+        <Route path="/question/fan" element={<FanQnA />} />
         <Route path="/intro" element={<Onboard />} />
         <Route path="/fandom/:id" element={<FandomDetail />} />
         <Route path="/write" element={<Write />} />
