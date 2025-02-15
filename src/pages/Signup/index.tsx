@@ -115,8 +115,11 @@ export default function Login() {
                 />
               </VStack>
               <VStack gap={10}>
-                <label>배너 이미지</label>
+                <label htmlFor="banner-img" className={s.inputContainer}>
+                  파일 선택하기
+                </label>
                 <input
+                  id="banner-img"
                   name="banner_img"
                   type="file"
                   accept="image/*"
@@ -126,11 +129,21 @@ export default function Login() {
                       bannerImg: e.target.files?.[0] || null,
                     })
                   }
+                  style={{
+                    opacity: 0, // input을 투명하게 설정
+                    position: "absolute", // 화면에서 보이지 않도록 위치 변경
+                    width: "0", // 크기를 0으로 설정하여 공간을 차지하지 않도록
+                    height: "0", // 크기를 0으로 설정하여 공간을 차지하지 않도록
+                  }}
                 />
               </VStack>
               <VStack gap={10}>
-                <label>프로필 이미지</label>
+                <label> 프로필 이미지</label>
+                <label htmlFor="profile-img" className={s.inputContainer}>
+                  파일 선택하기
+                </label>
                 <input
+                  id="profile-img"
                   name="banner_img"
                   type="file"
                   accept="image/*"
@@ -140,6 +153,12 @@ export default function Login() {
                       profile_img: e.target.files?.[0] || null,
                     })
                   }
+                  style={{
+                    opacity: 0, // input을 투명하게 설정
+                    position: "absolute", // 화면에서 보이지 않도록 위치 변경
+                    width: "0", // 크기를 0으로 설정하여 공간을 차지하지 않도록
+                    height: "0", // 크기를 0으로 설정하여 공간을 차지하지 않도록
+                  }}
                 />
               </VStack>
               <VStack gap={10}>

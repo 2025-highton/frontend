@@ -1,3 +1,4 @@
+import { client } from "@/api/axios";
 import QuestionItem from "@/components/common/QuestionItem";
 import ChooseQuestionSection from "@/components/QnA/admin/ChooseQuestionSection";
 import FandomQnAThumbnail from "@/components/QnA/FandomThumbnail";
@@ -7,13 +8,35 @@ import Layout from "@/components/ui/Layout";
 import NavBar from "@/components/ui/NavBar";
 import Title from "@/components/ui/Title";
 import { Suspense, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export default function QnA() {
+  const [detailData, setDetailData] = useState();
   const [isAdmin, setIsAdmin] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { id } = useParams();
+
+  const getDetailData = async () => {
+    try {
+      setLoading(true);
+      const response = await client({
+        method: "GET",
+        url: `/question/${id}`,
+      });
+      if (response.status == 200) {
+        setDetailData(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     const is_favor = localStorage.getItem("is_favor");
     setIsAdmin(is_favor === "true");
+    getDetailData();
   }, []);
 
   const fandomId = localStorage.getItem("fandom_id") || 0;
