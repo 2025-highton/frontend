@@ -8,7 +8,7 @@ interface Props {
   question: string;
   content: string;
   profileId: string;
-  comment: string;
+  comment?: string;
 }
 
 export default function ({
@@ -16,7 +16,7 @@ export default function ({
   question,
   content,
   profileId,
-  comment = "계절이 지나가는 하늘에는 가을로 가득 차 계절이 지나가는 하늘에는 가을로 가득 차계절이 지나가는 하늘에는 가을로 가득 차s",
+  comment,
 }: Props) {
   // const [imageFile, setImageFile] = useState<File | null>();
   // const getImageFile = (profileId: string) => {
@@ -38,7 +38,7 @@ export default function ({
   }, []);
 
   return (
-    <Flex direction="column" className={s.container} gap={8}>
+    <Flex direction="column" className={s.container} gap={16}>
       <p className={s.ellipsisContainer}>
         <span>{`Q.${idx}`}</span>
         {question}
@@ -55,11 +55,15 @@ export default function ({
         </div>
         <p className={s.text}>{content}</p>
       </Flex>
-      {comment && <div className={s.line}></div>}
-      <p className={s.ellipsisContainer}>
-        <span>A. </span>
-        {comment}
-      </p>
+      {comment && (
+        <>
+          <div className={s.line}></div>
+          <p className={s.ellipsisContainer}>
+            <span>A. </span>
+            {comment}
+          </p>
+        </>
+      )}
     </Flex>
   );
 }

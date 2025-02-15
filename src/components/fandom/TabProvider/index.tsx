@@ -9,6 +9,7 @@ interface Props {
 }
 
 const QuestionList = lazy(() => import("../QuestionList"));
+const History = lazy(() => import("../History"));
 
 const TabProvider = ({ tabs }: Props) => {
   const renderContent = () => {
@@ -32,7 +33,12 @@ const TabProvider = ({ tabs }: Props) => {
           </Suspense>
         );
       case "히스토리":
-        return <div>히스토리 탭 내용</div>;
+        return (
+          <Suspense fallback={<div>로딩 중...</div>}>
+            <History />
+          </Suspense>
+        );
+        return;
       case "팬질문":
         return <FandomQuestion />;
       default:

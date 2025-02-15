@@ -1,28 +1,17 @@
 import { VStack } from "@/components/ui";
-import { Flex } from "@/components/ui";
 import s from "./style.module.scss";
-import { useEffect, useState } from "react";
-import { client } from "@/api/axios";
 import QuestionItem from "@/components/common/QuestionItem";
+import { useEffect } from "react";
 
 export default function () {
-  const [questionList, setQuestionList] = useState([]);
-
-  const getQuestionList = async () => {
-    await client({
-      method: "GET",
-      params: {},
-    });
-  };
-
   useEffect(() => {
-    getQuestionList();
+    console.log("histort");
   }, []);
 
   return (
     <VStack>
-      <h1 className={s.title}>질의응답</h1>
-      <Flex direction="column" gap={24} justify="center">
+      <h1 className={s.title}>히스토리</h1>
+      <VStack gap={24} justify="center">
         <QuestionItem
           idx={1}
           question={"질문하세요질문질문~?"}
@@ -30,24 +19,7 @@ export default function () {
           profileId={
             "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg"
           }
-        />
-        <QuestionItem
-          idx={1}
-          question={"질문하세요질문질문~?"}
-          content={"대답대답대답대답ㅇㄹ늂아ㅠㄱㄹㄷㅇ"}
-          profileId={
-            "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg"
-          }
-        />
-        <QuestionItem
-          idx={1}
-          question={
-            "질문하세요질문질문~?sssfwfdkdsfdsfwwfljdslsdljdklsjflkdsjlkslsdjfs"
-          }
-          content={"대답대답대답대답ㅇㄹ늂아ㅠㄱㄹㄷㅇ"}
-          profileId={
-            "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg"
-          }
+          comment="질문하세요질문질문"
         />
         <QuestionItem
           idx={1}
@@ -56,6 +28,7 @@ export default function () {
           profileId={
             "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg"
           }
+          comment="질문하세요질문질문"
         />
         <QuestionItem
           idx={1}
@@ -64,8 +37,36 @@ export default function () {
           profileId={
             "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg"
           }
+          comment="질문하세요질문질문"
         />
-      </Flex>
+        <QuestionItem
+          idx={1}
+          question={"질문하세요질문질문~?"}
+          content={"대답대답대답대답ㅇㄹ늂아ㅠㄱㄹㄷㅇ"}
+          profileId={
+            "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg"
+          }
+          comment="질문하세요질문질문"
+        />
+        <QuestionItem
+          idx={1}
+          question={"질문하세요질문질문~?"}
+          content={"대답대답대답대답ㅇㄹ늂아ㅠㄱㄹㄷㅇ"}
+          profileId={
+            "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg"
+          }
+          comment="질문하세요질문질문"
+        />
+        <QuestionItem
+          idx={1}
+          question={"질문하세요질문질문~?"}
+          content={"대답대답대답대답ㅇㄹ늂아ㅠㄱㄹㄷㅇ"}
+          profileId={
+            "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg"
+          }
+          comment="질문하세요질문질문"
+        />
+      </VStack>
     </VStack>
   );
 }

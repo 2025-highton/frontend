@@ -1,6 +1,6 @@
 .imageContainer {
-  min-width: 60px;
-  height: 60px;
+  min-width: 50px;
+  height: 50px;
 
   object-fit: cover;
 
@@ -29,6 +29,8 @@
 }
 
 .ellipsisContainer {
+  margin: 0;
+  padding: 0;
   font-size: 17px;
   overflow: hidden;
   text-overflow: ellipsis;
