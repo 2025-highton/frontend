@@ -1,6 +1,6 @@
 import s from './Onboard.module.scss';
 import { Button, VStack } from "@/components/ui";
-import { ButtonSize, ButtonVariant } from "@/components/ui/Button/index.type";
+import { ButtonVariant } from "@/components/ui/Button/index.type";
 import Layout from "@/components/ui/Layout";
 
 export default function Onboard() {
