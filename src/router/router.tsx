@@ -16,6 +16,7 @@ const QnAResponseFan = lazy(() => import("../pages/QnAResponse/Fan"));
 const QnAResponseToday = lazy(() => import("../pages/QnAResponse/Today"));
 const Membership = lazy(() => import("../pages/Membership"));
 const Signup = lazy(() => import("../pages/Signup"));
+const MembershipConfirm = lazy(() => import("../pages/Membership/confirm"));
 
 export default function Router() {
   return (
@@ -36,6 +37,7 @@ export default function Router() {
         <Route path="/intro" element={<Onboard />} />
 
         <Route path="/membership" element={<Membership />} />
+        <Route path="/membership/confirm" element={<MembershipConfirm />} />
 
         <Route path="/fandom/:id" element={<FandomDetail />} />
         <Route path="/write" element={<Write />} />

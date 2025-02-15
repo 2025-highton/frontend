@@ -6,6 +6,7 @@ import Layout from "@/components/ui/Layout";
 import { IoCloseOutline } from "react-icons/io5";
 
 import s from './style.module.scss';
+import { useNavigate } from "react-router-dom";
 
 const membership = [
     {
@@ -38,6 +39,7 @@ const membership = [
 ]
 
 export default function Membership() {
+    const navigate = useNavigate();
     return (
         <Layout>
             <BackButtonHeader hideBackButton rightContent={<IoCloseOutline size={40} />}>멤버쉽 가입</BackButtonHeader>
@@ -50,7 +52,7 @@ export default function Membership() {
                                 <li key={index}>{prize}</li>
                             ))}
                         </ul>
-                        <Button size={ButtonSize.MEDIUM}>{item.price}</Button>
+                        <Button onClick={() => navigate('confirm')} size={ButtonSize.MEDIUM}>{item.price}</Button>
                     </VStack>
                 ))}
             </VStack>

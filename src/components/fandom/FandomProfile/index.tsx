@@ -1,6 +1,6 @@
 import { Button, Flex, HStack, VStack } from "@/components/ui";
 import s from "./style.module.scss";
-import { ButtonSize } from "@/components/ui/Button/index.type";
+import { ButtonSize, ButtonVariant } from "@/components/ui/Button/index.type";
 
 export interface FandomProfileProps {
   profileImageSrc: string;
@@ -23,6 +23,7 @@ export default function FandomProfile({
           <span>{fandomDescription}</span>
           </VStack>
           <Button style={{width: '100%'}} size={ButtonSize.SMALL}>가입하기</Button>
+          <Button variant={ButtonVariant.WHITE} style={{width: '100%'}} size={ButtonSize.SMALL}>가입하기</Button>
         </VStack>
       </HStack>
     </Flex>

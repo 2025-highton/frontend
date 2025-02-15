@@ -2,6 +2,7 @@ import HStack from "../HStack";
 import SearchBarMock from "../SearchBar";
 
 import s from "./style.module.scss";
+import LogoMini from "@/components/icon/LogoMini";
 
 export default function Header() {
   return (
@@ -12,7 +13,7 @@ export default function Header() {
       className={s.header}
       gap={20}
     >
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Vercel_logo_black.svg/640px-Vercel_logo_black.svg.png" />
+      <LogoMini />
       <SearchBarMock />
     </HStack>
   );
