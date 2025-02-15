@@ -1,4 +1,6 @@
 import { Suspense, lazy } from "react";
+import FandomAboutSection from "../section/FandomAbout";
+import Layout from "@/components/ui/Layout";
 
 interface Props {
   tabs: "소개" | "질의응답" | "히스토리" | "팬질문";
@@ -16,7 +18,17 @@ const TabProvider = ({ tabs }: Props) => {
           </Suspense>
         );
       case "소개":
-        return <div>소개 탭 내용</div>;
+        return (
+          <Suspense fallback={<div>로딩 중...</div>}>
+            <FandomAboutSection
+              fandomName="QWER"
+              description="2023년 10월 18일 데뷔한 타마고 프로덕션 소속 4인조 걸밴드
+김계란이 기획한 '최애의 아이들' 프로젝트를 통해 결성되었다."
+              debutDate="2021년 10월 10일"
+              fandomCount={10000}
+            />
+          </Suspense>
+        );
       case "히스토리":
         return <div>히스토리 탭 내용</div>;
       case "팬질문":
@@ -26,7 +38,11 @@ const TabProvider = ({ tabs }: Props) => {
     }
   };
 
-  return renderContent(); // 수정된 부분
+  return (
+    <>
+      <Layout style={{ padding: "30px" }}>{renderContent()}</Layout>
+    </>
+  ); // 수정된 부분
 };
 
 export default TabProvider;
