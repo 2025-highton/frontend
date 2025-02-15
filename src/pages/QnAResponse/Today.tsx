@@ -4,7 +4,7 @@ import Layout from "@/components/ui/Layout";
 import { IoCloseOutline } from "react-icons/io5";
 
 import s from "./style.module.scss";
-import { Button, HStack, VStack } from "@/components/ui";
+import { Button, VStack } from "@/components/ui";
 import { useNavigate } from "react-router-dom";
 
 export default function QnAResponseToday() {
