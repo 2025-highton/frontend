@@ -19,9 +19,11 @@ export default function NavBar() {
           </li>
 
           <li>
-            <button className={s.centerButton}>
-              <Bubble />
-            </button>
+            <Link to={"/Question"}>
+              <button className={s.centerButton}>
+                <Bubble />
+              </button>
+            </Link>
           </li>
           <li>
             <Link to="/fandom/1" className={s.link}>

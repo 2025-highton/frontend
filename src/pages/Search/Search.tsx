@@ -65,7 +65,7 @@ export default function Search() {
         <h2>{}</h2>
         <Flex direction="column">"검색리스트"</Flex>
       </Flex>
-      <Layout>{}</Layout>
+      <Layout><></></Layout>
     </>
   );
 }
