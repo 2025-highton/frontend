@@ -3,10 +3,11 @@ import Layout from "@/components/ui/Layout";
 import NavBar from "@/components/ui/NavBar";
 
 export default function Main() {
-    return (
-        <Layout>
-            <Header />
-            <NavBar />
-        </Layout>
-    )
+  return (
+    <Layout>
+      <Header />
+
+      <NavBar />
+    </Layout>
+  );
 }
