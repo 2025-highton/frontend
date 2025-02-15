@@ -4,7 +4,6 @@ import { FaChevronLeft } from "react-icons/fa6";
 import FandomProfile, { FandomProfileProps } from "../FandomProfile";
 import { VStack } from "@/components/ui";
 import Tab, { TabProps } from "@/components/ui/Tab";
-import Layout from "@/components/ui/Layout";
 
 interface MediaPreviewHeaderProps {
   imageSrc: string;
