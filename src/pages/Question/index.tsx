@@ -23,7 +23,7 @@ export default function CommentList() {
 
   const getCommentList = async (questionId: number) => {
     await client
-      .get<CommentListType[]>("대충유알앨", {
+      .get<CommentListType[]>("/fandom/fandomId", {
         params: { questionId },
       })
       .then((res) => {

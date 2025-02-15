@@ -19,11 +19,19 @@ export default function FandomProfile({
         <img src={profileImageSrc} className={s.image} />
         <VStack fullWidth className={s.data} gap={14}>
           <VStack gap={4}>
-          <h1>{fandomName}</h1>
-          <span>{fandomDescription}</span>
+            <h1>{fandomName}</h1>
+            <span>{fandomDescription}</span>
           </VStack>
-          <Button style={{width: '100%'}} size={ButtonSize.SMALL}>가입하기</Button>
-          <Button variant={ButtonVariant.WHITE} style={{width: '100%'}} size={ButtonSize.SMALL}>가입하기</Button>
+          <Button style={{ width: "100%" }} size={ButtonSize.SMALL}>
+            가입하기
+          </Button>
+          <Button
+            variant={ButtonVariant.WHITE}
+            style={{ width: "100%" }}
+            size={ButtonSize.SMALL}
+          >
+            가입중
+          </Button>
         </VStack>
       </HStack>
     </Flex>

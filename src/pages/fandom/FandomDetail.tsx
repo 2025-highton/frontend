@@ -1,14 +1,34 @@
+import { client } from "@/api/axios";
 import MediaPreviewHeader from "@/components/fandom/MediaPreviewHeader";
 import TabProvider from "@/components/fandom/TabProvider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 export type FandomTab = "소개" | "머플" | "히스토리" | "팬질문";
 
 export default function FandomDetail() {
+  const { id } = useParams();
   const [activeTab, setActiveTab] = useState<
     "소개" | "머플" | "히스토리" | "팬질문"
   >("소개");
   const tabs = ["소개", "머플", "히스토리", "팬질문"];
+
+  const getFandomDetailData = () => {
+    const fandomId = localStorage.getItem("userId"); // 로컬 스토리지에서 userId 가져오기
+
+    client({
+      method: "POST",
+      url: `/fandom/${id}`,
+      params: {
+        fandom_id: fandomId,
+      },
+    });
+  };
+
+  useEffect(() => {
+    getFandomDetailData();
+  }, []);
+
   return (
     <>
       <MediaPreviewHeader

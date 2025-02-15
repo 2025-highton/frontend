@@ -1,12 +1,12 @@
 export enum ButtonVariant {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary',
-    WHITE = 'white',
-    OUTLINE = 'outline',
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
+  WHITE = "white",
+  OUTLINE = "outline",
 }
 
 export enum ButtonSize {
-    SMALL = 'small',
-    MEDIUM = 'medium',
-    LARGE = 'large',
+  SMALL = "small",
+  MEDIUM = "medium",
+  LARGE = "large",
 }
