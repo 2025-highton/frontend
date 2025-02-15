@@ -87,7 +87,7 @@ export default function History() {
                   <QuestionItem
                     idx={item.id}
                     question={item.question}
-                    content={item.content}
+                    content={item.favor_answer}
                     profileId={item.profileId}
                     comment={item.comment}
                   />

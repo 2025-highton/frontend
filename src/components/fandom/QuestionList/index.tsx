@@ -90,7 +90,7 @@ export default function QuestionList() {
                   <QuestionItem
                     idx={item.id}
                     question={item.question}
-                    content={item.content}
+                    content={item.favor_answer}
                     profileId={item.profileId}
                   />
                 </motion.div>

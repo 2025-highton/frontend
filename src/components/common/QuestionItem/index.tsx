@@ -1,6 +1,5 @@
 import { Flex } from "@/components/ui";
 // import { client } from "@/api/axios";
-import { useEffect } from "react";
 import s from "./style.module.scss";
 import { useNavigate } from "react-router-dom";
 
@@ -21,25 +20,6 @@ export default function Question({
 }: Props) {
   const navigate = useNavigate();
 
-  // const [imageFile, setImageFile] = useState<File | null>();
-  // const getImageFile = (profileId: string) => {
-  //   try {
-  //     const response = client({
-  //       method: "GET",
-  //       params: {
-  //         profileId,
-  //       },
-  //     });
-  //     setImageFile(response.imageFile);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-  useEffect(() => {
-    // getImageFile(profileId);
-  }, []);
-
   return (
     <div className={s.container} onClick={() => navigate(`/question/${11}`)}>
       <p className={s.ellipsisContainer}>
@@ -51,7 +31,9 @@ export default function Question({
           {
             <img
               className={s.imageContainer}
-              src={profileId}
+              src={
+                "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+              }
               alt="profile image"
             />
           }

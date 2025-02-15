@@ -5,8 +5,10 @@ import { useState } from "react";
 import s from "./style.module.scss";
 import fillHeart from "@/components/icon/fillHeart";
 import lineHeart from "@/components/icon/lineHeart";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -51,9 +53,9 @@ export default function Login() {
           url: "/fandom",
           data: formData,
         });
-        setMessage("회원가입 및 팬덤 생성이 성공적으로 완료되었습니다!");
+        navigate("/signup/confirm");
       } else {
-        setMessage("회원가입이 성공적으로 완료되었습니다!");
+        navigate("/signup/confirm");
       }
     } catch (error) {
       console.error(error);

@@ -16,6 +16,7 @@ const QnAResponseToday = lazy(() => import("../pages/QnAResponse/Today"));
 const Membership = lazy(() => import("../pages/Membership"));
 const Signup = lazy(() => import("../pages/Signup"));
 const MembershipConfirm = lazy(() => import("../pages/Membership/confirm"));
+const SignupConfirm = lazy(() => import("../pages/SignupConfirm"));
 
 export default function Router() {
   return (
@@ -32,14 +33,13 @@ export default function Router() {
         <Route path="/question/fan" element={<FanQnA />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/membership/confirm" element={<MembershipConfirm />} />
+        <Route path="/signup/confirm" element={<SignupConfirm />} />
 
         <Route path="/fandom/:id" element={<FandomDetail />} />
         <Route path="/question/:id" element={<Question />} />
         <Route path="/question/fan/response/:id" element={<QnAResponseFan />} />
 
-        <Route element={<PrivateRoute />}>
-          {/* 로그인 해야되는 라우팅 */}
-        </Route>
+        <Route element={<PrivateRoute />}>{/* 로그인 해야되는 라우팅 */}</Route>
       </Routes>
     </BrowserRouter>
   );
