@@ -14,17 +14,17 @@ export default function FandomProfile({
   fandomName,
 }: FandomProfileProps) {
   return (
-    <Flex className={s.fandomProfile} justify='between'>
-      <HStack gap={16}>
+    <Flex className={s.fandomProfile} justify="between">
+      <HStack gap={16} fullWidth>
         <img src={profileImageSrc} className={s.image} />
-        <VStack className={s.data} gap={6}>
+        <VStack fullWidth className={s.data} gap={20}>
+          <VStack gap={4}>
           <h1>{fandomName}</h1>
           <span>{fandomDescription}</span>
+          </VStack>
+          <Button style={{width: '100%'}} size={ButtonSize.SMALL}>가입하기</Button>
         </VStack>
       </HStack>
-      <Button size={ButtonSize.MEDIUM}>
-        가입하기
-      </Button>
     </Flex>
   );
 }

@@ -9,7 +9,7 @@ interface MediaPreviewHeaderProps {
 
 export default function MediaPreviewHeader({
   imageSrc,
-  height = 300,
+  height = 320,
 }: MediaPreviewHeaderProps) {
   const navigate = useNavigate();
 
@@ -19,9 +19,15 @@ export default function MediaPreviewHeader({
   
   return (
     <>
-      <img src={imageSrc} className={s.image} style={{ height }} />
+      <img
+        style={{
+          background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${imageSrc})`,
+          height,
+        }}
+        className={s.image}
+      />
       <div className={s.header} onClick={() => handleBack()}>
-        <FaChevronLeft color="#fff" size={24} />
+        <FaChevronLeft color="#fff" size={20} />
       </div>
     </>
   );

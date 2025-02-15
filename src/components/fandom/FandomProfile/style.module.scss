@@ -1,23 +1,31 @@
 .fandomProfile {
     padding: 20px;
+
+    margin-top: -178px;
 }
 
 .image {
-    width: 60px;
+    width: 90px;
     aspect-ratio: 1/1;
 
     object-fit: cover;
 
     border-radius: 999px;
+    // outline: 5px solid #fff;
 }
 
 .data {
     h1 {
         font-size: 20px;
+
+        color: #fff;
+
         margin: 0;
     }
 
     span {
-        color: #9a9a9a
+        color: #fff;
+
+        font-size: 14px;
     }
 }
