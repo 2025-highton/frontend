@@ -7,7 +7,7 @@ import Plus from "@/components/icon/plus";
 import { CSSProperties } from "react";
 
 interface ImageItem {
-  iamgeUrl: string;
+  imageUrl: string;
   redirectUrl: string;
   title?: string;
 }
@@ -36,7 +36,7 @@ export default function CenteredAutoSwiper({ images }: Props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={image.iamgeUrl} alt={`slide-${index}`} />
+            <img src={image.imageUrl} alt={`slide-${index}`} />
           </a>
         </SwiperSlide>
       ))}
@@ -62,7 +62,7 @@ export function CircleBanner({ images, style }: Props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={image.iamgeUrl} alt={`slide-${index}`} />
+            <img src={image.imageUrl} alt={`slide-${index}`} />
             <span>{image.title}</span>
           </a>
         </SwiperSlide>
@@ -88,7 +88,8 @@ export function HotSlideBanner({ images }: Props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={image.iamgeUrl} alt={`slide-${index}`} />
+            <img src={image.imageUrl} alt={`slide-${index}`} />
+            <span className={s.hotslidefuck}>{image.title}</span>
           </a>
         </SwiperSlide>
       ))}
@@ -113,7 +114,7 @@ export function InnerCircleBanner({ images }: Props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={image.iamgeUrl} alt={`slide-${index}`} />
+            <img src={image.imageUrl} alt={`slide-${index}`} />
           </a>
         </SwiperSlide>
       ))}
