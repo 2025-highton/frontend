@@ -12,7 +12,7 @@ export default function QnA() {
 
   useEffect(() => {
     const is_favor = localStorage.getItem("is_favor");
-    setIsAdmin(!!is_favor);
+    setIsAdmin(is_favor === "true");
   }, []);
 
   return (
