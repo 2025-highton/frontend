@@ -40,7 +40,7 @@ export default function MediaPreviewHeader({
         <div className={s.header} onClick={() => handleBack()}>
           <FaChevronLeft color="#fff" size={20} />
         </div>
-        <VStack>
+        <VStack gap={10}>
           <FandomProfile
             profileImageSrc={fandomProfile.profileImageSrc}
             fandomName={fandomProfile.fandomName}
