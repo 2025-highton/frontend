@@ -17,7 +17,6 @@ export default function NavBar() {
               <Home color={pathname === "/" ? "#BF3131" : undefined} />
             </Link>
           </li>
-
           <li>
             <Link to={"/Question"}>
               <button className={s.centerButton}>
