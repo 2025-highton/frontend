@@ -8,6 +8,7 @@ const Login = lazy(() => import("../pages/Login"));
 const Main = lazy(() => import("../pages/Main"));
 const Search = lazy(() => import("../pages/Search/Search"));
 const FandomDetail = lazy(() => import("../pages/fandom/FandomDetail"));
+const Write = lazy(() => import("../pages/Write"));
 
 export default function Router() {
   return (
@@ -19,6 +20,7 @@ export default function Router() {
         <Route path="/search" element={<Search />} />
         <Route path="/intro" element={<Onboard />} />
         <Route path="/fandom/:id" element={<FandomDetail />} />
+        <Route path="/write" element={<Write />} />
         <Route element={<PrivateRoute />}>
           <Route path="/login2" element={<Login />} />
           {/* 로그인 해야되는 라우팅 */}
