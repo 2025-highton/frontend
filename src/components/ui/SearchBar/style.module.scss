@@ -1,10 +1,11 @@
 .inputContainer {
     width: 60%;
     max-width: 400px;
-    height: 40px;
+    height: 35px;
 
-    background-color: #eeeeee;
+    background-color: #fff;
     border-radius: 999px;
+    border: 2px solid #BF3131;
 
     padding: 0 14px;
 
@@ -22,6 +23,10 @@
         border: none;
         outline: none;
 
-        color: #6c6c6c;
+        color: #BF3131;
+    }
+
+    svg {
+        color: #BF3131;
     }
 }

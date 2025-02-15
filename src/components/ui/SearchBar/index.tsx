@@ -5,9 +5,8 @@ import HStack from "../HStack";
 
 export default function SearchBarMock() {
     return (
-        <HStack className={s.inputContainer} align="center" gap={6}>
+        <HStack className={s.inputContainer} align="center" justify="end" gap={6}>
             <IoSearch />
-            <input type="text" placeholder="검색어를 입력하세요" />
         </HStack>
     )
 }

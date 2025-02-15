@@ -32,6 +32,7 @@ export default function NavBar() {
           </li>
         </ul>
       </nav>
+      <div className={s.line}></div>
     </>
   );
 }
