@@ -1,0 +1,53 @@
+.inputContainer {
+    height: 60px;
+    padding: 0 20px;
+    
+    border-bottom: 1px solid #e0e0e0;
+
+    color: #888;
+}
+
+.input {
+    height: 100%;
+    width: 100%;
+
+    border: 0;
+
+    background-color: transparent;
+
+    font-size: 18px;
+
+    &:active, &:focus {
+        outline: none;
+    }
+}
+
+.recentSearchContainer {
+    padding: 25px 0;
+    h2 {
+        font-size: 16px;
+        font-weight: 500;
+
+        margin: 0;
+        margin-bottom: 20px;
+
+        color: #727272
+    }
+
+    div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        a {
+            text-decoration: none;
+    
+            color: #000;
+    
+            border-radius: 999px;
+            border: 1px solid #e0e0e0;
+    
+            padding: 8px 13px;
+        }
+    }
+}

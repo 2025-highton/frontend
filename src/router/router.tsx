@@ -6,6 +6,7 @@ import Onboard from "@/pages/Auth/Onboard";
 
 const Login = lazy(() => import("../pages/Login"));
 const Main = lazy(() => import("../pages/Main"));
+const Search = lazy(() => import("../pages/Search/Search"));
 const FandomDetail = lazy(() => import("../pages/fandom/FandomDetail"));
 
 export default function Router() {
@@ -15,6 +16,7 @@ export default function Router() {
         {/* 로그인 안해도 되는 라우팅 */}
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/intro" element={<Onboard />} />
         <Route path="/fandom/:id" element={<FandomDetail />} />
         <Route element={<PrivateRoute />}>
