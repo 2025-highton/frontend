@@ -1,27 +1,61 @@
+import { client } from "@/api/axios";
 import QuestionByFan from "@/components/QnA/QuestionByFan";
 import { VStack } from "@/components/ui";
 import BackButtonHeader from "@/components/ui/BackButtonHeader";
 import Layout from "@/components/ui/Layout";
 import NavBar from "@/components/ui/NavBar";
+import { useEffect, useState } from "react";
 
 export default function FanQnA() {
+  const [listData, setListData] = useState();
+  const [loading, setLoading] = useState(true);
+  const fandom_id = localStorage.getItem("fandom_id");
+
+  const getQuestionByFan = async () => {
+    setLoading(true);
+    try {
+      const response = await client({
+        method: "GET",
+        url: "/question",
+        params: {
+          type: "fandom",
+          id: fandom_id,
+          offset: 0,
+          limit: 100,
+        },
+      });
+
+      if (response.status == 200) {
+        setListData(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getQuestionByFan();
+  }, []);
+
   return (
     <Layout>
       <BackButtonHeader>팬 질문</BackButtonHeader>
       <VStack gap={15}>
-        {Array.from({ length: 10 }).map((_, idx) => (
-          <QuestionByFan
-            key={idx}
-            id="1"
-            fan={{
-              profileImageSrc:
-                "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg",
-              name: "김팬",
-              content:
-                "계절이 지나가는 하늘에는 가을로 가득 차 있습니다..... 나는 아무 걱정도 없이 가을 속의 별",
-            }}
-          />
-        ))}
+        {!loading && listData
+          ? listData.map((i) => (
+              <QuestionByFan
+                id="1"
+                fan={{
+                  profileImageSrc:
+                    "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg",
+                  name: i.question,
+                  content: i.favor_answer,
+                }}
+              />
+            ))
+          : null}
       </VStack>
       <NavBar />
     </Layout>
