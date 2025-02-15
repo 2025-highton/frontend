@@ -1,7 +1,7 @@
 import HStack from "../HStack";
 import s from "./style.module.scss";
 
-interface TabProps {
+export interface TabProps {
   tabs: Array<string>;
   activeTab: string;
   onClick: (tab: string) => void;

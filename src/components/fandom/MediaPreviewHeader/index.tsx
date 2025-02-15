@@ -1,33 +1,60 @@
 import { useNavigate } from "react-router-dom";
 import s from "./style.module.scss";
 import { FaChevronLeft } from "react-icons/fa6";
+import FandomProfile, { FandomProfileProps } from "../FandomProfile";
+import { VStack } from "@/components/ui";
+import Tab, { TabProps } from "@/components/ui/Tab";
+import Layout from "@/components/ui/Layout";
 
 interface MediaPreviewHeaderProps {
   imageSrc: string;
   height?: number;
+
+  fandomProfile: FandomProfileProps;
+
+  tab: TabProps;
 }
 
 export default function MediaPreviewHeader({
   imageSrc,
   height = 320,
+  fandomProfile,
+  tab,
 }: MediaPreviewHeaderProps) {
   const navigate = useNavigate();
 
   function handleBack() {
     navigate(-1);
   }
-  
+
   return (
     <>
-      <img
+      <div
         style={{
           background: `linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${imageSrc})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
           height,
         }}
         className={s.image}
-      />
-      <div className={s.header} onClick={() => handleBack()}>
-        <FaChevronLeft color="#fff" size={20} />
+      >
+        <div className={s.header} onClick={() => handleBack()}>
+          <FaChevronLeft color="#fff" size={20} />
+        </div>
+        <VStack>
+          <FandomProfile
+            profileImageSrc={fandomProfile.profileImageSrc}
+            fandomName={fandomProfile.fandomName}
+            fandomDescription={fandomProfile.fandomDescription}
+          />
+          <div style={{ padding: "0 30px" }}>
+            <Tab
+              tabs={tab.tabs}
+              activeTab={tab.activeTab}
+              onClick={tab.onClick}
+            />
+          </div>
+        </VStack>
       </div>
     </>
   );

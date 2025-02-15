@@ -2,7 +2,7 @@ import { Button, Flex, HStack, VStack } from "@/components/ui";
 import s from "./style.module.scss";
 import { ButtonSize } from "@/components/ui/Button/index.type";
 
-interface FandomProfileProps {
+export interface FandomProfileProps {
   profileImageSrc: string;
   fandomName: string;
   fandomDescription: string;
@@ -17,7 +17,7 @@ export default function FandomProfile({
     <Flex className={s.fandomProfile} justify="between">
       <HStack gap={16} fullWidth>
         <img src={profileImageSrc} className={s.image} />
-        <VStack fullWidth className={s.data} gap={20}>
+        <VStack fullWidth className={s.data} gap={14}>
           <VStack gap={4}>
           <h1>{fandomName}</h1>
           <span>{fandomDescription}</span>
