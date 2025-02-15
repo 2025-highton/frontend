@@ -1,10 +1,11 @@
+import { FandomTab } from "@/pages/fandom/FandomDetail";
 import HStack from "../HStack";
 import s from "./style.module.scss";
 
 export interface TabProps {
   tabs: Array<string>;
   activeTab: string;
-  onClick: (tab: string) => void;
+  onClick: (tab: FandomTab) => void;
 }
 
 export default function Tab({ tabs, activeTab, onClick }: TabProps) {
@@ -14,7 +15,7 @@ export default function Tab({ tabs, activeTab, onClick }: TabProps) {
         <div
           key={tab}
           className={`${s.tab} ${activeTab === tab ? s.activeTab : ""}`}
-          onClick={() => onClick(tab)}
+          onClick={() => onClick(tab as FandomTab)}
         >
           {tab}
         </div>
