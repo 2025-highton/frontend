@@ -13,7 +13,7 @@ export default function NavBar() {
       <nav className={s.nav}>
         <ul className={s.list}>
           <li>
-            <Link to="/login" className={s.link}>
+            <Link to="/" className={s.link}>
               <Home color={pathname === "/" ? "#BF3131" : undefined} />
             </Link>
           </li>

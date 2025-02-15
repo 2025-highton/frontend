@@ -10,6 +10,7 @@ export interface FlexProps extends BaseLayoutProps, Partial<LayoutSizeProps> {
   align?: "start" | "end" | "center" | "stretch";
   wrap?: "wrap" | "nowrap";
   gap?: number;
+  onClick?: () => void;
 }
 
 function Flex(props: FlexProps, ref: Ref<unknown>) {
@@ -26,6 +27,7 @@ function Flex(props: FlexProps, ref: Ref<unknown>) {
     fullHeight,
     fullWidth,
     fitContent,
+    onClick,
     ...rest
   } = props;
 
@@ -34,6 +36,7 @@ function Flex(props: FlexProps, ref: Ref<unknown>) {
     {
       ...rest,
       ref,
+      onClick,
       className: cn(
         s.flexLayout,
         {
