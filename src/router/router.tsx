@@ -15,6 +15,7 @@ const FanQnA = lazy(() => import("../pages/fanQnA"));
 const QnAResponseFan = lazy(() => import("../pages/QnAResponse/Fan"));
 const QnAResponseToday = lazy(() => import("../pages/QnAResponse/Today"));
 const Membership = lazy(() => import("../pages/Membership"));
+const Signup = lazy(() => import("../pages/Signup"));
 
 export default function Router() {
   return (
@@ -22,6 +23,7 @@ export default function Router() {
       <Routes>
         {/* 로그인 안해도 되는 라우팅 */}
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<Main />} />
 
         <Route path="/search" element={<Search />} />

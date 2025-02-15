@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import FandomAboutSection from "../section/FandomAbout";
 import Layout from "@/components/ui/Layout";
-// import FandomQuestionWithMembership from "../section/QuestionWithMembership";
+import FandomQuestionWithMembership from "../section/QuestionWithMembership";
 import FandomQuestion from "../section/Question";
 
 interface Props {
@@ -12,6 +12,7 @@ const QuestionList = lazy(() => import("../QuestionList"));
 const History = lazy(() => import("../History"));
 
 const TabProvider = ({ tabs }: Props) => {
+  const membership = false;
   const renderContent = () => {
     switch (tabs) {
       case "질의응답":
@@ -40,7 +41,11 @@ const TabProvider = ({ tabs }: Props) => {
         );
         return;
       case "팬질문":
-        return <FandomQuestion />;
+        return membership ? (
+          <FandomQuestion />
+        ) : (
+          <FandomQuestionWithMembership />
+        );
       default:
         return <div>잘못된 탭입니다.</div>;
     }
