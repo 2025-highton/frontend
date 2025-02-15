@@ -1,0 +1,96 @@
+.container {
+  width: 100%;
+  max-width: 1200px; // 최대 너비 지정
+  padding: 20px 0;
+}
+
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto; // 자동 조절
+}
+
+.autobannerImage {
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: 180px; // 높이 조정 (필요시 변경 가능)
+    object-fit: cover; // 이미지 비율 유지
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 5px;
+    overflow: hidden;
+    &:hover {
+      transform: scale(1.05); // 호버 시 확대 효과
+    }
+  }
+}
+
+.hotBannerImage {
+  width: 200px;
+  height: 200px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // 이미지 비율 유지
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 5px;
+    overflow: hidden;
+    &:hover {
+      transform: scale(1.05); // 호버 시 확대 효과
+    }
+  }
+}
+
+.circleBannerImage {
+  width: 120px;
+  height: 120px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // 이미지 비율 유지
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 100%;
+    overflow: hidden;
+    &:hover {
+      transform: scale(1.05); // 호버 시 확대 효과
+    }
+  }
+}
+
+:global(.swiper-pagination-bullet) {
+  background-color: #ff6347 !important; /* 기본 색상 (토마토색) */
+  opacity: 0.5;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background-color: #7d0a0a !important; /* 활성화된 색상 (오렌지레드) */
+  opacity: 1;
+}
+
+.innerCircleBannerImage {
+  background-color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // 이미지 비율 유지
+
+    &:hover {
+      transform: scale(1.05); // 호버 시 확대 효과
+    }
+  }
+}
