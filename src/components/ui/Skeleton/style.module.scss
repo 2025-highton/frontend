@@ -1,0 +1,23 @@
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(#e6e6e6, 0.6) 25%,
+    rgba(#f5f5f5, 0.6) 37%,
+    rgba(#e6e6e6, 0.6) 63%
+  );
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease infinite;
+
+  &.rounded {
+    border-radius: 8px;
+  }
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
