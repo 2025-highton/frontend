@@ -1,10 +1,14 @@
+import s from './Onboard.module.scss';
 import { Button, VStack } from "@/components/ui";
 import { ButtonSize, ButtonVariant } from "@/components/ui/Button/index.type";
+import Layout from "@/components/ui/Layout";
 
 export default function Onboard() {
     return (
-        <VStack as={'main'}>
-            <h1>Onboard</h1>
+        <Layout>
+            <VStack className={s.content}>
+                <h1>Onboard</h1>
+            </VStack>
             <VStack gap={6}>
                 <Button>
                     로그인
@@ -13,6 +17,6 @@ export default function Onboard() {
                     회원가입
                 </Button>
             </VStack>
-        </VStack>
+        </Layout>
     )
 }
