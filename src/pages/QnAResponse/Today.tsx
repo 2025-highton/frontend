@@ -31,7 +31,7 @@ export default function QnAResponseToday() {
       </VStack>
       <VStack gap={10} className={s.responseContainer}>
         <h1 className={s.title}>Q. 01</h1>
-        <textarea />
+        <textarea style={{resize: 'none'}} />
       </VStack>
       <div className={s.buttonContainer}>
         <Button style={{ width: "100%" }} onClick={() => handleComplete()}>
