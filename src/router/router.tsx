@@ -2,12 +2,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./PrivateRouter";
 
 import { lazy } from "react";
-import Onboard from "@/pages/Auth/Onboard";
-import Question from "@/pages/Question";
 
 const Login = lazy(() => import("../pages/Login"));
 const Main = lazy(() => import("../pages/Main"));
 const Search = lazy(() => import("../pages/Search/Search"));
+const Question = lazy(() => import("../pages/Question"));
+const QnA = lazy(() => import("../pages/qna"));
+const Onboard = lazy(() => import("../pages/Auth/Onboard"));
 const FandomDetail = lazy(() => import("../pages/fandom/FandomDetail"));
 const Write = lazy(() => import("../pages/Write"));
 
@@ -19,6 +20,7 @@ export default function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Main />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/Question" element={<QnA />} />
         <Route path="/intro" element={<Onboard />} />
         <Route path="/fandom/:id" element={<FandomDetail />} />
         <Route path="/write" element={<Write />} />
