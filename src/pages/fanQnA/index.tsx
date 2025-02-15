@@ -26,7 +26,7 @@ export default function FanQnA() {
       });
 
       if (response.status == 200) {
-        setListData(response.data);
+        setListData(response.data.filter((i) => !i.favor_answer));
       }
     } catch (error) {
       console.log(error);
