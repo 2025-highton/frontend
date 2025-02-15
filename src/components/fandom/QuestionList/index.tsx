@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import QuestionItem from "@/components/common/QuestionItem";
 import { motion, AnimatePresence } from "framer-motion";
 import SkeletonQuestionList from "./index.skeleton";
+import { client } from "@/api/axios";
+import { useParams } from "react-router-dom";
 
 interface QuestionItemType {
   id: number;
@@ -14,37 +16,11 @@ interface QuestionItemType {
   createdAt: string;
 }
 
-const MOCK_DATA: QuestionItemType[] = [
-  {
-    id: 1,
-    question: "가장 좋아하는 음식은 무엇인가요?",
-    content: "저는 피자를 정말 좋아해요! 특히 치즈가 듬뿍 들어간 피자요.",
-    profileId:
-      "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg",
-    createdAt: "2024-03-15",
-  },
-  {
-    id: 2,
-    question: "취미가 무엇인가요?",
-    content: "음악 듣기와 그림 그리기를 좋아합니다.",
-    profileId:
-      "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg",
-    createdAt: "2024-03-14",
-  },
-  {
-    id: 3,
-    question: "데뷔 전 어떤 준비를 하셨나요?",
-    content: "매일 연습하고 운동도 열심히 했어요!",
-    profileId:
-      "https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg",
-    createdAt: "2024-03-13",
-  },
-];
-
 export default function QuestionList() {
   const [questionList, setQuestionList] = useState<QuestionItemType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
+  const { id } = useParams();
 
   const container = {
     hidden: { opacity: 1 },
@@ -71,8 +47,20 @@ export default function QuestionList() {
   const getQuestionList = async () => {
     try {
       setIsLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setQuestionList(MOCK_DATA);
+      const response = await client({
+        method: "GET",
+        url: "/question",
+        params: {
+          type: "fandom",
+          id: id,
+          offset: 0,
+          limit: 100,
+        },
+      });
+
+      if (response.status === 200) {
+        setQuestionList(response.data.filter((i) => i.favor_answer != null));
+      }
     } catch (error) {
       console.error("Failed to fetch questions:", error);
     } finally {
@@ -89,7 +77,6 @@ export default function QuestionList() {
     <VStack>
       <h1 className={s.title}>머플</h1>
       {isLoading && <SkeletonQuestionList />}
-
       {!isLoading && (
         <AnimatePresence>
           <motion.div
@@ -108,6 +95,9 @@ export default function QuestionList() {
                   />
                 </motion.div>
               ))}
+              {questionList.length > 0 ? null : (
+                <h4>머플이 존재하지 않아요!</h4>
+              )}
             </Flex>
           </motion.div>
         </AnimatePresence>
