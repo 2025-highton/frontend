@@ -1,6 +1,7 @@
 import QuestionItem from "@/components/common/QuestionItem";
 import ChooseQuestionSection from "@/components/QnA/admin/ChooseQuestionSection";
 import FandomQnAThumbnail from "@/components/QnA/FandomThumbnail";
+import RecentQuestionList from "@/components/QnA/RecentQuestionList";
 import { VStack } from "@/components/ui";
 import Layout from "@/components/ui/Layout";
 import NavBar from "@/components/ui/NavBar";
@@ -14,6 +15,8 @@ export default function QnA() {
     const is_favor = localStorage.getItem("is_favor");
     setIsAdmin(is_favor === "true");
   }, []);
+
+  const fandomId = localStorage.getItem("fandomId") || 0;
 
   return (
     <>
@@ -40,15 +43,7 @@ export default function QnA() {
           <ChooseQuestionSection />
           <Layout>
             <VStack gap={20} style={{ padding: "30px 0" }}>
-              {Array.from({ length: 10 }).map((_, idx) => (
-                <QuestionItem
-                  key={idx}
-                  idx={idx + 2}
-                  question="QWER 질문입니다."
-                  content="QWER 답변입니다."
-                  profileId="https://thumb.mtstarnews.com/06/2024/02/2024022608330769629_2.jpg"
-                />
-              ))}
+              <RecentQuestionList fandomId={fandomId as number} />
             </VStack>
           </Layout>
         </>
