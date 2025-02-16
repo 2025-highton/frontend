@@ -26,11 +26,8 @@ const TabProvider = ({ tabs, data }: Props) => {
         return (
           <Suspense fallback={<div>로딩 중...</div>}>
             <FandomAboutSection
-              fandomName="QWER"
-              description="2023년 10월 18일 데뷔한 타마고 프로덕션 소속 4인조 걸밴드
-김계란이 기획한 '최애의 아이들' 프로젝트를 통해 결성되었다."
-              debutDate="2021년 10월 10일"
-              fandomCount={10000}
+              fandomName={data.name}
+              description={data.desc}
             />
           </Suspense>
         );

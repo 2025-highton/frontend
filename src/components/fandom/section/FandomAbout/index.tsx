@@ -1,4 +1,4 @@
-import { HStack, VStack } from "@/components/ui";
+import { VStack } from "@/components/ui";
 import s from "./style.module.scss";
 import FandomSectionTitle from "../Title";
 
@@ -15,18 +15,6 @@ export default function FandomAboutSection(data: Props) {
       <FandomSectionTitle>머플러 소개</FandomSectionTitle>
       <h2 className={s.fandomName}>{data.fandomName}</h2>
       <p className={s.fandomAbout}>{data.description}</p>
-      <VStack as={"section"} gap={30} className={s.detailSection}>
-        <HStack justify="between" fullWidth align="center">
-          <h3 className={s.sectionTitle}>데뷔일</h3>
-          <p className={s.sectionContent}>{data.debutDate}</p>
-        </HStack>
-        <HStack justify="between" fullWidth align="center">
-          <h3 className={s.sectionTitle}>팬덤 수</h3>
-          <p className={s.sectionContent}>
-            {data.fandomCount.toLocaleString()}명
-          </p>
-        </HStack>
-      </VStack>
     </VStack>
   );
 }
