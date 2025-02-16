@@ -106,6 +106,7 @@ export default function Login() {
                 <input
                   type="text"
                   name="name"
+                  placeholder="팬덤이름를 입력하세요"
                   className={s.inputContainer}
                   required
                   value={fandomData.name}
@@ -115,7 +116,14 @@ export default function Login() {
                 />
               </VStack>
               <VStack gap={10}>
-                <label htmlFor="banner-img" className={s.inputContainer}>
+                <label
+                  htmlFor="banner-img"
+                  className={
+                    fandomData.bannerImg
+                      ? s.inputContainer
+                      : s.inputContainerFill
+                  }
+                >
                   파일 선택하기
                 </label>
                 <input
@@ -139,7 +147,14 @@ export default function Login() {
               </VStack>
               <VStack gap={10}>
                 <label> 프로필 이미지</label>
-                <label htmlFor="profile-img" className={s.inputContainer}>
+                <label
+                  htmlFor="profile-img"
+                  className={
+                    fandomData.profile_img
+                      ? s.inputContainer
+                      : s.inputContainerFill
+                  }
+                >
                   파일 선택하기
                 </label>
                 <input

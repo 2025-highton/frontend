@@ -2,64 +2,67 @@ import { Flex, VStack } from "@/components/ui";
 import { useState, useEffect } from "react";
 import { client } from "@/api/axios";
 import CommentItem from "@/components/common/comment";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import s from "./style.module.scss";
 import BackCursor from "@/components/icon/backCursor";
 
-interface CommentListType {
-  id: number;
-  create_date: Date;
-  questionId: number;
-  userId: number;
-  content: string;
-  isEmotion: boolean;
-  profile_url?: string;
-}
-
 export default function CommentList() {
-  const [commentList, setCommentList] = useState<CommentListType[] | []>([]);
+  const [detail, setDetail] = useState();
+  const [isLoading, setIsLoading] = useState<>(true);
   const params = useParams();
   const id = Number(params.id);
+  const navigate = useNavigate();
 
-  const getCommentList = async (questionId: number) => {
-    await client
-      .get<CommentListType[]>("/fandom/fandomId", {
-        params: { questionId },
-      })
-      .then((res) => {
-        setCommentList(res.data ?? []);
-      })
-      .catch((error) => {
-        console.error("댓글 목록을 불러오는 중 오류 발생:", error);
+  const getDetailData = async () => {
+    try {
+      const response = await client({
+        method: "GET",
+        url: `/question/${id}`,
       });
+
+      if (response.status == 200) {
+        setDetail(response.data);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
+  const navigateBack = () => {
+    navigate(-1);
+  };
   useEffect(() => {
-    getCommentList(id);
+    getDetailData();
   }, []);
 
   return (
     <VStack justify="center" align="start" className={s.container} gap={20}>
-      <Flex justify="between" align="center" className={s.titleContainer}>
-        <BackCursor />
-        <h1 className={s.title}>질의응답</h1>
-        <div></div>
-      </Flex>
-      <VStack gap={30}>
-        <VStack>
-          <h2 className={s.questionText}>Q.1</h2>
-          <p>
-            계절이 지나가는 하늘에는 가을로 가득 차 있습니다. 나는 아무 걱정도
-            없이 가을 속의
-          </p>
+      <VStack justify="center" align="start" gap={20} className={s.Wrapper}>
+        <Flex justify="between" align="center" className={s.titleContainer}>
+          <label onClick={navigateBack}>
+            <BackCursor />
+          </label>
+          <h1 className={s.title}>질의응답</h1>
+          <div></div>
+        </Flex>
+        <VStack gap={30}>
+          <VStack>
+            <h2 className={s.questionText}>Q.1</h2>
+            <p>{!isLoading ? detail.question : "로딩중..."}</p>
+          </VStack>
+          <VStack>
+            <h2 className={s.questionText}>QWER</h2>
+            <p>{!isLoading ? detail.favor_answer : "로딩중..."}</p>
+          </VStack>
         </VStack>
-        <VStack>
-          <h2 className={s.questionText}>QWER</h2>
-          <p>
-            계절이 지나가는 하늘에는 가을로 가득 차 있습니다. 나는 아무 걱정도
-            없이 가을 속의
-          </p>
-        </VStack>
+      </VStack>
+      <VStack className={s.container}>
+        <div className={s.line}></div>
+        <Flex direction="row" align="start" className={s.commentTitle}>
+          <h3>댓글</h3>
+        </Flex>
       </VStack>
       <VStack className={s.commentContainer}>
         {/* {commentList && commentList.length > 0 ? (
@@ -77,9 +80,11 @@ export default function CommentList() {
         <CommentItem
           key={11}
           profileUrl={11}
-          name={"팬1"}
-          content={"ajhflsdsfvrewdascvfdsfvfrew"}
-        />{" "}
+          name={"익명"}
+          content={
+            "오~ 저도 치즈 듬뿍 올라간 피자 완전 좋아해요! 한 조각만 먹어도 행복해지는 그 맛 😋🍕"
+          }
+        />
       </VStack>
     </VStack>
   );

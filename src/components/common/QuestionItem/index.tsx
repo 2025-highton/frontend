@@ -9,6 +9,7 @@ interface Props {
   content: string;
   profileId: string;
   comment?: string;
+  id: number;
 }
 
 export default function Question({
@@ -17,11 +18,12 @@ export default function Question({
   content,
   profileId,
   comment,
+  id,
 }: Props) {
   const navigate = useNavigate();
 
   return (
-    <div className={s.container} onClick={() => navigate(`/question/${11}`)}>
+    <div className={s.container} onClick={() => navigate(`/question/${id}`)}>
       <p className={s.ellipsisContainer}>
         <span>{`Q.${idx}`}</span>
         {question}

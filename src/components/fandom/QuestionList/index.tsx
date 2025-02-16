@@ -88,6 +88,7 @@ export default function QuestionList() {
               {questionList.map((item) => (
                 <motion.div key={item.id} variants={animationItem}>
                   <QuestionItem
+                    id={item.id}
                     idx={item.id}
                     question={item.question}
                     content={item.favor_answer}

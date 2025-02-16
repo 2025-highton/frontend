@@ -13,6 +13,21 @@
   cursor: pointer;
 }
 
+.inputContainerFill {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  background-color: var(--main-02, #6b0f0f);
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  :focus {
+    border: 1.8px solid var(--main-02, #c31717);
+  }
+  cursor: pointer;
+}
+
 .row {
   display: flex;
   flex-direction: row;

@@ -8,7 +8,7 @@ import Tab, { TabProps } from "@/components/ui/Tab";
 interface MediaPreviewHeaderProps {
   imageSrc: string;
   height?: number;
-
+  isJoin: boolean;
   fandomProfile: FandomProfileProps;
 
   tab: TabProps;
@@ -18,6 +18,7 @@ export default function MediaPreviewHeader({
   imageSrc,
   height = 320,
   fandomProfile,
+  isJoin,
   tab,
 }: MediaPreviewHeaderProps) {
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ export default function MediaPreviewHeader({
         </div>
         <VStack gap={10}>
           <FandomProfile
+            isJoin={isJoin}
             profileImageSrc={fandomProfile.profileImageSrc}
             fandomName={fandomProfile.fandomName}
             fandomDescription={fandomProfile.fandomDescription}

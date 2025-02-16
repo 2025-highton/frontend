@@ -25,7 +25,7 @@ export default function NavBar() {
             </Link>
           </li>
           <li>
-            <Link to="/fandom/1" className={s.link}>
+            <Link to="/membership" className={s.link}>
               <Profile
                 color={pathname === "/profile" ? "#BF3131" : undefined}
               />

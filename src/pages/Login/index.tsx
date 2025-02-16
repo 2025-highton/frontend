@@ -28,7 +28,7 @@ export default function Login() {
       console.log(res);
       if (res.status === 200) {
         const { id, is_favor } = res.data;
-        localStorage.setItem("userId", id);
+        localStorage.setItem("id", id);
         localStorage.setItem("is_favor", is_favor); // 로컬 스토리지에 저장
 
         navigate("/");

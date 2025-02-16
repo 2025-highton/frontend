@@ -1,4 +1,4 @@
-import { Flex } from "@/components/ui";
+import { Flex, HStack } from "@/components/ui";
 import s from "./style.module.scss";
 import { client } from "@/api/axios";
 import { useEffect, useState } from "react";
@@ -33,18 +33,20 @@ const CommentItem = ({ profileUrl, name, content }: Props) => {
 
   return (
     <Flex
-      direction="row"
+      direction="column"
       className={s.container}
       justify="around"
       gap={10}
-      align="center"
+      align="start"
     >
-      {profileImg ? <img src={profileImg} /> : <img src={""} />}
-      <p>{name}</p>
+      <HStack gap={20} align="center">
+        {profileImg ? <img src={profileImg} /> : <img src={""} />}
+        <p>{name}</p>
+        <label onClick={() => setEmoji(!emoji)}>
+          {emoji ? fillHeart() : lineHeart()}
+        </label>
+      </HStack>
       <p>{content}</p>
-      <label onClick={() => setEmoji(!emoji)}>
-        {emoji ? fillHeart() : lineHeart()}
-      </label>
     </Flex>
   );
 };

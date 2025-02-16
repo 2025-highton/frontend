@@ -1,6 +1,7 @@
 import { client } from "@/api/axios";
 import MediaPreviewHeader from "@/components/fandom/MediaPreviewHeader";
 import TabProvider from "@/components/fandom/TabProvider";
+import NavBar from "@/components/ui/NavBar";
 import { useImage } from "@/hooks/useImage";
 import { getTime } from "@/time";
 import { useEffect, useState } from "react";
@@ -38,12 +39,8 @@ export default function FandomDetail() {
       if (response.status == 200) {
         setDetailData(response.data);
         // 이미지 로드
-        const bannerImg = await getImage(
-          response.data.benner_img_id
-        );
-        const profileImg = await getImage(
-          response.data.profile_img_id
-        );
+        const bannerImg = await getImage(response.data.benner_img_id);
+        const profileImg = await getImage(response.data.profile_img_id);
         setBannerImage(bannerImg);
         setProfileImage(profileImg);
       }
@@ -69,6 +66,7 @@ export default function FandomDetail() {
             "불러오는 중..."
           }`,
         }}
+        isJoin={detailData?.user_ids.includes(parseInt(myId))}
         tab={{
           tabs,
           activeTab,
@@ -78,6 +76,7 @@ export default function FandomDetail() {
         }}
       />
       <TabProvider tabs={activeTab} data={detailData} />
+      <NavBar />
     </>
   );
 }

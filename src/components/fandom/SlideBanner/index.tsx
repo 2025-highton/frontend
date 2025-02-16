@@ -33,7 +33,7 @@ export default function CenteredAutoSwiper({ images }: Props) {
           <a
             href={image.redirectUrl}
             className={s.autobannerImage}
-            target="_blank"
+            target="_self"
             rel="noopener noreferrer"
           >
             <img src={image.imageUrl} alt={`slide-${index}`} />
@@ -59,7 +59,7 @@ export function CircleBanner({ images, style }: Props) {
           <a
             href={image.redirectUrl}
             className={s.circleBannerImage}
-            target="_blank"
+            target="_self"
             rel="noopener noreferrer"
           >
             <img src={image.imageUrl} alt={`slide-${index}`} />
@@ -85,7 +85,7 @@ export function HotSlideBanner({ images }: Props) {
           <a
             href={image.redirectUrl}
             className={s.hotBannerImage}
-            target="_blank"
+            target="_self"
             rel="noopener noreferrer"
           >
             <img src={image.imageUrl} alt={`slide-${index}`} />
@@ -111,7 +111,7 @@ export function InnerCircleBanner({ images }: Props) {
           <a
             href={image.redirectUrl}
             className={s.innerCircleBannerImage}
-            target="_blank"
+            target="_self"
             rel="noopener noreferrer"
           >
             <img src={image.imageUrl} alt={`slide-${index}`} />
@@ -120,9 +120,9 @@ export function InnerCircleBanner({ images }: Props) {
       ))}
       <SwiperSlide className={s.slide}>
         <a
-          href={""}
+          href={"/search"}
           className={s.innerCircleBannerImage}
-          target="_blank"
+          target="_self"
           rel="noopener noreferrer"
         >
           <Plus />

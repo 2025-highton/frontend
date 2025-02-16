@@ -9,21 +9,26 @@ import Snowman from "@/components/icon/Snowman";
 import { useNavigate } from "react-router-dom";
 
 export default function MembershipConfirm() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <Layout>
-      <BackButtonHeader
-        hideBackButton
-        rightContent={<IoCloseOutline size={40} />}
+      <BackButtonHeader hideBackButton>멤버쉽 가입</BackButtonHeader>
+      <VStack
+        fullWidth
+        align="center"
+        justify="center"
+        gap={30}
+        className={s.confirmContent}
       >
-        멤버쉽 가입
-      </BackButtonHeader>
-      <VStack fullWidth align="center" justify="center" gap={30} className={s.confirmContent}>
         <Snowman />
-        <span><b>멤버쉽 가입</b>이 완료되었습니다!</span>
+        <span>
+          <b>멤버쉽 가입</b>이 완료되었습니다!
+        </span>
       </VStack>
       <div className={s.confirm}>
-        <Button onClick={() => navigate('/')} style={{ width: "100%" }}>홈으로</Button>
+        <Button onClick={() => navigate("/")} style={{ width: "100%" }}>
+          홈으로
+        </Button>
       </div>
     </Layout>
   );
