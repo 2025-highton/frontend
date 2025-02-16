@@ -41,6 +41,12 @@ const membership = [
 
 export default function Membership() {
   const navigate = useNavigate();
+
+  const membershipConfirm = () => {
+    localStorage.setItem("membership", "true");
+    navigate("confirm");
+  };
+
   return (
     <Layout>
       <BackButtonHeader
@@ -58,10 +64,7 @@ export default function Membership() {
                 <li key={index}>{prize}</li>
               ))}
             </ul>
-            <Button
-              onClick={() => navigate("confirm")}
-              size={ButtonSize.MEDIUM}
-            >
+            <Button onClick={membershipConfirm} size={ButtonSize.MEDIUM}>
               {item.price}
             </Button>
           </VStack>
