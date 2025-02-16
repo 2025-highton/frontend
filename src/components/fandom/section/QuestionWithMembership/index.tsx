@@ -3,8 +3,13 @@ import FandomSectionTitle from "../Title";
 
 import s from "./style.module.scss";
 import Snowman from "@/components/icon/Snowman";
+import { useNavigate } from "react-router-dom";
 
 export default function FandomQuestionWithMembership() {
+  const navigate = useNavigate();
+  const redirectMembership = () => {
+    navigate("/membership");
+  };
   return (
     <VStack>
       <FandomSectionTitle>팬질문</FandomSectionTitle>
@@ -22,7 +27,7 @@ export default function FandomQuestionWithMembership() {
           기능입니다
         </span>
       </VStack>
-      <Button>멤버쉽 가입하기</Button>
+      <Button onClick={redirectMembership}>멤버쉽 가입하기</Button>
     </VStack>
   );
 }
