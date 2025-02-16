@@ -9,8 +9,8 @@ export default function Login() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [login, setLogin] = useState({
-    email: "aronia@gmail.com",
-    password: "1111",
+    email: "",
+    password: "",
   });
 
   const submitHandle = async (e: React.FormEvent<HTMLFormElement>) => {
